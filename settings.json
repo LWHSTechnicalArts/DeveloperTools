@@ -1,0 +1,19 @@
+{
+    "terminal.integrated.minimumContrastRatio": 1,
+    "vim.cursorStylePerMode.insert": "line",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "claudeCode.enableNewConversationShortcut": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.inlineSuggest.enabled": false,
+    "github.copilot.editor.enableAutoCompletions": false,
+    "claudeCode.preferredLocation": "panel",
+    "workbench.colorTheme": "p5.js Editor Light"
+}
