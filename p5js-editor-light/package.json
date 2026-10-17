@@ -1,0 +1,17 @@
+{
+  "name": "p5js-editor-light",
+  "displayName": "p5.js Editor Light",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": { "vscode": "^1.60.0" },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      {
+        "label": "p5.js Editor Light",
+        "uiTheme": "vs",
+        "path": "./themes/p5js-editor-light-color-theme.json"
+      }
+    ]
+  }
+}
