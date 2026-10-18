@@ -25,7 +25,6 @@
     status
     command_execution_time
     background_jobs
-    time
   )
 
   typeset -g POWERLEVEL9K_BACKGROUND=
