@@ -200,6 +200,14 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
   unset paletteColors colorName colorValue
 fi
 
+# Friendlier message for a command that does not exist. zsh runs this function
+# instead of printing its usual "command not found" error. Returning 127 keeps
+# the failure status, so the prompt still shows its pink ✘ mark.
+command_not_found_handler() {
+  print -u2 -r -- "\"$1\" is not a command. Check the spelling, or press the Up arrow to fix it."
+  return 127
+}
+
 # Machine-specific settings live outside this repository, in ~/.zshrc.local.
 # The file is optional; on machines without it, this line does nothing.
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

@@ -8,6 +8,7 @@
     "editor.fontSize": 18,
     "files.autoSave": "afterDelay",
     "editor.wordWrap": "on",
+    "editor.guides.bracketPairs": true,
     "editor.minimap.enabled": true,
     "editor.stickyScroll.enabled": false,
     "workbench.startupEditor": "none",

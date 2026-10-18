@@ -9,7 +9,7 @@ This Bash script sets up your Mac for Tech Arts code & design projects. It insta
 The setup script installs these programs and settings for you:
 
 - **Homebrew**, a tool that installs other programs from the command line.
-- **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme and the p5.vscode and Live Server extensions.
+- **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme and four extensions: p5.vscode and Live Server for p5.js sketches, and Error Lens and Code Spell Checker for catching mistakes.
 - **oh-my-zsh** and **Powerlevel10k**, which give your terminal a colored, informative prompt.
 - **zsh-autosuggestions** and **zsh-syntax-highlighting**, which suggest and color commands as you type.
 - **MesloLGS NF**, a font with the symbols the prompt draws.
@@ -30,7 +30,7 @@ You need three things before you begin:
 Terminal is an app where you control your Mac by typing commands instead of pointing and clicking. You will only need a few skills for this setup:
 
 - **Running a command:** Copy a command from this page, click in the Terminal window, paste it with **Command-V**, and press **Return**. Terminal runs one command each time you press Return.
-- **Waiting:** While a command runs, lots of text scrolls by. It will be a ton, and it's not important that you read or understand all of it. (But feel free to investigate!)
+- **Waiting:** While a command runs, lots of text scrolls by. It will be a ton, and it's not important that you read or understand all of it. (But feel free to investigate!) Lines containing the word *warning*, such as `DeprecationWarning`, are not errors: the command is still working, and you can ignore them. If something actually goes wrong, the script stops and says so.
 - **Typing your password:** When Terminal asks for your password, nothing appears on screen as you type, not even dots. This is normal. Type your password and press Return.
 - **Stopping a command:** If something goes wrong and you need to stop a command, press **Control-C**.
 
@@ -63,7 +63,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 1. **Open Visual Studio Code (VS Code).** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. If macOS asks whether you are sure you want to open it, click **Open**. The editor uses the light p5.js Editor Light theme.
 
-2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode** and **Live Server** are in the list of installed extensions.
+2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode**, **Live Server**, **Error Lens**, and **Code Spell Checker** are in the list of installed extensions.
 
 ### Open the Terminal Inside Visual Studio Code
 
@@ -77,7 +77,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 5. **Check homebrew.** Run `brew --version`. It prints a line starting with `Homebrew` and a version number. A blue `✔` appears on the right side of the prompt: it means the last command succeeded.
 
-6. **Make a mistake on purpose.** Type `ecko hello`, but do not press Return yet. The word `ecko` is pale green, because it is not a real command; the terminal colors commands as you type so you can catch typos before running them. Now press Return. The terminal says `command not found`, and a pink `✘` appears on the right: it means the last command failed.
+6. **Make a mistake on purpose.** Type `ecko hello`, but do not press Return yet. The word `ecko` is pale green, because it is not a real command; the terminal colors commands as you type so you can catch typos before running them. Now press Return. The terminal says `"ecko" is not a command. Check the spelling, or press the Up arrow to fix it.`, and a pink `✘` appears on the right: it means the last command failed.
 
 7. **Fix the mistake.** Type `echo hello`. This time `echo` turns blue, because it is a real command. Press Return, and the terminal prints `hello` with a blue `✔`.
 
@@ -120,6 +120,25 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 | Go to a folder | Type its name and press **Return** |
 | Go back to the previous folder | `-` |
 | Open the current folder in Visual Studio Code | `code .` |
+
+## How Visual Studio Code Helps You Find Mistakes
+
+Visual Studio Code is set up to point out common mistakes while you type.
+
+- **Matching brackets:** when a pair of braces, brackets, or parentheses spans several lines, a thin colored line connects the opening one to its closing one, and the pair around your cursor is highlighted. If the lines do not match up the way you expect, a bracket is probably missing.
+- **Error messages on the line:** the Error Lens extension prints each error or warning right at the end of the line that caused it, so you can read the message without hovering over a squiggly underline.
+- **Spelling:** the Code Spell Checker extension underlines words it does not recognize, in blue. A misspelled function name, such as `backgroud` instead of `background`, is a common reason a sketch does not run. To stop a correctly spelled word from being flagged, click it, press **Command-period**, and choose to add it to the dictionary.
+- **In the terminal:** if you type a command that does not exist, the terminal tells you so in plain words and reminds you that the Up arrow brings the command back so you can fix it.
+
+## How Visual Studio Code Saves Your Work
+
+Visual Studio Code saves your files automatically, the way the p5.js web editor does, so you do not need to press **Command-S** after every change.
+
+- **When it saves:** about one second after you stop typing, Visual Studio Code saves the file you are editing.
+- **How to tell:** while a file has changes that are not saved yet, its tab shows a dot instead of an **×**. When the file is saved, the dot goes away.
+- **With Live Server:** Live Server reloads your sketch in the browser every time a file is saved. Because saving is automatic, your sketch updates about a second after you stop typing. If you pause in the middle of a line, the sketch may briefly show an error; it fixes itself when you finish the line.
+- **New files:** a brand-new file has no name or folder yet. Save it once with **Command-S** and choose where it goes; after that, Visual Studio Code keeps saving it for you.
+- **Undoing a change:** autosave writes over the file each time. To go back, press **Command-Z** to undo, one step at a time, while the file is still open.
 
 ## A Note on Running Commands from the Internet
 
@@ -193,6 +212,8 @@ GitHub Copilot is built into Visual Studio Code. These guides explain how to wor
 - **Visual Studio Code**: [Visual Studio Code documentation](https://code.visualstudio.com/docs), [the `code` command line](https://code.visualstudio.com/docs/configure/command-line), [color themes](https://code.visualstudio.com/docs/configure/themes), and [Homebrew's visual-studio-code package](https://formulae.brew.sh/cask/visual-studio-code)
 - **p5.vscode** extension: [p5.vscode on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode)
 - **Live Server** extension: [Live Server on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- **Error Lens** extension: [Error Lens on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- **Code Spell Checker** extension: [Code Spell Checker on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - **p5.js**, the library the p5.vscode extension supports: [p5.js reference](https://p5js.org/reference/)
 - **zsh**, the shell in Terminal and in Visual Studio Code's terminal: [Use zsh as the default shell on your Mac](https://support.apple.com/en-us/102360) and [zsh documentation](https://zsh.sourceforge.io/Doc/)
 - **oh-my-zsh**: [oh-my-zsh wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)
