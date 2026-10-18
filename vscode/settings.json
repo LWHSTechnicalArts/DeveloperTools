@@ -6,6 +6,9 @@
     "terminal.integrated.fontSize": 18,
     "editor.fontFamily": "Inconsolata, Menlo, monospace",
     "editor.fontSize": 18,
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "workbench.startupEditor": "none",
     "claudeCode.enableNewConversationShortcut": true,
     "terminal.integrated.shellIntegration.enabled": true,
     "github.copilot.enable": {
