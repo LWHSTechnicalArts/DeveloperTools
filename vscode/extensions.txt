@@ -16,7 +16,3 @@ ritwickdey.LiveServer
 # Error Lens: shows each error or warning message on the line where it happens,
 # instead of only a squiggly underline.
 usernamehw.errorlens
-
-# Code Spell Checker: underlines misspelled words in code and comments, such as
-# a misspelled function name.
-streetsidesoftware.code-spell-checker

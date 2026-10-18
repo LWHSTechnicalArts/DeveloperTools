@@ -8,7 +8,8 @@
 # repository, so the repository becomes the one place where those files live.
 # If a file is already in the way, the script moves it into a dated backup
 # folder first, so nothing gets lost. Then it installs the Visual Studio Code
-# extensions listed in vscode/extensions.txt.
+# extensions listed in vscode/extensions.txt and fixes a settings file in the
+# p5.vscode extension that would otherwise show errors in Visual Studio Code.
 #
 # setup.sh runs this script after install.sh. You can also run it by itself
 # when the programs are already installed.
@@ -223,5 +224,54 @@ else
         "$code_command" --install-extension "${extension_ids[index]}"
     done
 fi
+
+# --- Fix p5.vscode's TypeScript settings ------------------------------------
+# p5.vscode ships a settings file, p5types/tsconfig.json, that names two test
+# files the extension does not include and uses an option ("baseUrl") that
+# newer versions of TypeScript mark as deprecated. Visual Studio Code reads
+# that file whenever a p5.js project is open, and shows three errors in the
+# Problems panel. Replacing it with a corrected copy clears them. Reinstalling
+# the extension brings the old file back, so this runs every time.
+echo "Fixing p5.vscode's TypeScript settings"
+
+# A "*" in a path is a wildcard: it matches any text, so this pattern finds
+# p5.vscode no matter which version number is in its folder name. If nothing
+# matches, bash leaves the pattern as plain text, which is why the loop checks
+# that the file really exists with -f.
+for p5types_settings_path in "$HOME"/.vscode/extensions/samplavigne.p5-vscode-*/p5types/tsconfig.json; do
+    if [ ! -f "$p5types_settings_path" ]; then
+        echo "Skipped: p5.vscode is not installed."
+        continue
+    fi
+
+    # grep -q succeeds if the file still contains the old "baseUrl" setting.
+    if ! grep -q '"baseUrl"' "$p5types_settings_path"; then
+        echo "Already fixed: $p5types_settings_path"
+        continue
+    fi
+
+    # "cat > FILE <<'END'" writes every line up to the line "END" into FILE,
+    # replacing what was there. This kind of block is called a "here document."
+    # The quotes around 'END' tell bash to copy the lines exactly, without
+    # treating any characters as special.
+    cat > "$p5types_settings_path" <<'END'
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["dom", "es5"],
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "typeRoots": ["../"],
+        "types": [],
+        "noEmit": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "files": ["index.d.ts"]
+}
+END
+    echo "Fixed: $p5types_settings_path"
+done
 
 echo "Done. Open a new terminal window and restart Visual Studio Code to see the changes."

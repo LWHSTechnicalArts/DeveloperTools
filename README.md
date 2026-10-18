@@ -9,7 +9,7 @@ This Bash script sets up your Mac for Tech Arts code & design projects. It insta
 The setup script installs these programs and settings for you:
 
 - **Homebrew**, a tool that installs other programs from the command line.
-- **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme and four extensions: p5.vscode and Live Server for p5.js sketches, and Error Lens and Code Spell Checker for catching mistakes.
+- **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme and three extensions: p5.vscode and Live Server for p5.js sketches, and Error Lens for catching mistakes.
 - **oh-my-zsh** and **Powerlevel10k**, which give your terminal a colored, informative prompt.
 - **zsh-autosuggestions** and **zsh-syntax-highlighting**, which suggest and color commands as you type.
 - **MesloLGS NF**, a font with the symbols the prompt draws.
@@ -63,7 +63,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 1. **Open Visual Studio Code (VS Code).** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. If macOS asks whether you are sure you want to open it, click **Open**. The editor uses the light p5.js Editor Light theme.
 
-2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode**, **Live Server**, **Error Lens**, and **Code Spell Checker** are in the list of installed extensions.
+2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode**, **Live Server**, and **Error Lens** are in the list of installed extensions.
 
 ### Open the Terminal Inside Visual Studio Code
 
@@ -124,6 +124,11 @@ This last part puts everything together: you create a p5.js project, preview it 
 
 20. **Ask Copilot for a tiger.** Click `sketch.js` in the sidebar to open it. Press **Command-I** to open a chat box inside the editor, type `Draw a picture of a tiger using p5.js shapes`, and press Return. Copilot shows its suggested changes right in the file, with new lines highlighted. Read them over, then click **Keep** to accept them, or **Undo** to throw them away.
 
+    There are two ways to chat with Copilot, and they open in different places:
+
+    - **Command-I** opens a small chat box *over the code in the editor*, right where your cursor is. Use it for quick changes to the file you are looking at, like this tiger.
+    - **Control-Command-I** opens the **Chat view**, a panel in a *sidebar* next to the editor. Use it for longer conversations: asking questions, getting explanations, or asking for changes across several files. The conversation stays in the panel while you work.
+
 21. **Watch the browser update.** About a second after you click **Keep**, Visual Studio Code saves `sketch.js` automatically, and Live Server reloads the page, so the tiger appears in your browser without you touching it. (If it does not appear, press **Command-S** to save.) Copilot's drawing is different every time; try follow-up requests such as `Give the tiger bolder stripes` and watch the browser change after each one. If Copilot's code has a mistake, Error Lens shows the error message on the line, and you can ask Copilot to fix it.
 
 If a check fails, run the setup command from step 2 of the setup again, then repeat the tour. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
@@ -146,6 +151,7 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 | Delete a file (answer `y` to delete, `n` to keep) | `rm` *name* |
 | Open the current folder in Visual Studio Code | `code .` |
 | Ask Copilot to change the code in a file | **Command-I** in the editor |
+| Open the Copilot chat panel in the sidebar | **Control-Command-I** |
 | Make the editor's text bigger or smaller | Hold **Command** and scroll |
 
 ## How Visual Studio Code Helps You Find Mistakes
@@ -154,7 +160,6 @@ Visual Studio Code is set up to point out common mistakes while you type.
 
 - **Matching brackets:** when a pair of braces, brackets, or parentheses spans several lines, a thin colored line connects the opening one to its closing one, and the pair around your cursor is highlighted. If the lines do not match up the way you expect, a bracket is probably missing.
 - **Error messages on the line:** the Error Lens extension prints each error or warning right at the end of the line that caused it, so you can read the message without hovering over a squiggly underline.
-- **Spelling:** the Code Spell Checker extension underlines words it does not recognize, in blue. A misspelled function name, such as `backgroud` instead of `background`, is a common reason a sketch does not run. To stop a correctly spelled word from being flagged, click it, press **Command-period**, and choose to add it to the dictionary.
 - **In the terminal:** if you type a command that does not exist, the terminal tells you so in plain words and reminds you that the Up arrow brings the command back so you can fix it.
 - **Deleting files:** files you delete with the `rm` command skip the Trash and cannot be recovered, so the terminal reminds you of the answers and asks `remove ...?` before deleting each one. Type `y` and press Return to delete it, or `n` and Return to keep it.
 
@@ -241,7 +246,6 @@ GitHub Copilot is built into Visual Studio Code. These guides explain how to wor
 - **p5.vscode** extension: [p5.vscode on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode)
 - **Live Server** extension: [Live Server on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - **Error Lens** extension: [Error Lens on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
-- **Code Spell Checker** extension: [Code Spell Checker on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - **p5.js**, the library the p5.vscode extension supports: [p5.js reference](https://p5js.org/reference/)
 - **zsh**, the shell in Terminal and in Visual Studio Code's terminal: [Use zsh as the default shell on your Mac](https://support.apple.com/en-us/102360) and [zsh documentation](https://zsh.sourceforge.io/Doc/)
 - **oh-my-zsh**: [oh-my-zsh wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)
