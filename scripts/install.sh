@@ -12,6 +12,8 @@
 #   4. oh-my-zsh, a framework that organizes zsh themes and plugins.
 #   5. Powerlevel10k, the prompt theme, downloaded into oh-my-zsh with git.
 #   6. The MesloLGS NF font, which has the symbols the prompt draws.
+#   7. The Inconsolata font for Visual Studio Code's editor, so code you are
+#      editing looks different from the terminal, which uses MesloLGS NF.
 #
 # zsh itself needs no installing: it is the default shell on every Mac since
 # macOS Catalina.
@@ -240,6 +242,17 @@ for (( index = 0; index < font_count; index++ )); do
         echo "Installed: $font_file_name"
     fi
 done
+
+
+# --- 7. Inconsolata font for the editor -------------------------------------
+print_step "Inconsolata font"
+# Homebrew installs fonts as casks too; a font cask copies the font files into
+# ~/Library/Fonts. "brew list --cask NAME" succeeds only if it is installed.
+if brew list --cask font-inconsolata &> /dev/null; then
+    echo "Already installed: font-inconsolata"
+else
+    brew install --cask font-inconsolata
+fi
 
 
 print_step "Installs finished"

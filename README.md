@@ -1,17 +1,18 @@
 # DeveloperTools
 
-This repository sets up your Mac for Code & Design at Lick-Wilmerding High School. One script installs the tools we use in class and makes Visual Studio Code, iTerm2, and your terminal prompt match the light color scheme of the [p5.js web editor](https://editor.p5js.org).
+In about 30 minutes, the script in this repository with automatically set up your Mac for Tech Arts code & design projects. One script installs the tools we use for agentic engineering. For a more unified and inviting learning experience, it also matches the visual style of Visual Studio Code, iTerm2, and your terminal prompt to to the light color scheme of the [p5.js web editor](https://editor.p5js.org).
 
 ## What the setup does
 
 The setup script installs these programs and settings for you:
 
 - **Homebrew**, a tool that installs other programs from the command line.
-- **iTerm2**, the terminal app we use in class.
+- **iTerm2**, the terminal app we use.
 - **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme and the p5.vscode and Live Server extensions.
 - **oh-my-zsh** and **Powerlevel10k**, which give your terminal a colored, informative prompt.
 - **zsh-autosuggestions** and **zsh-syntax-highlighting**, which suggest and color commands as you type.
 - **MesloLGS NF**, a font with the symbols the prompt draws.
+- **Inconsolata**, a different font for the code you edit in Visual Studio Code, so you can always tell your code apart from the terminal.
 
 The script does not delete anything. If your Mac already has one of the settings files it replaces, the script moves your old file into a folder named `DeveloperTools-backups` in your home folder.
 
@@ -20,15 +21,15 @@ The script does not delete anything. If your Mac already has one of the settings
 You need three things before you begin:
 
 - A Mac connected to the internet.
-- The password you use to log in to your Mac. Your account must be an administrator account. If the script says you are not an administrator, ask your teacher for help.
+- The password you use to log in to your Mac. Your account must be an administrator account. If the script says you are not an administrator, you need to logout and log in as the admin user.
 - About 30 minutes. Most of that time is waiting while things download.
 
 ## Terminal basics
 
-Terminal is an app where you control your Mac by typing commands instead of clicking. You will only need a few skills for this setup:
+Terminal is an app where you control your Mac by typing commands instead of pointing and clicking. You will only need a few skills for this setup:
 
 - **Running a command:** Copy a command from this page, click in the Terminal window, paste it with **Command-V**, and press **Return**. Terminal runs one command each time you press Return.
-- **Waiting:** While a command runs, text scrolls by. The command is finished when you see a line ending in `%` with a blinking cursor after it. That line is called the *prompt*.
+- **Waiting:** While a command runs, text scrolls by.
 - **Typing your password:** When Terminal asks for your password, nothing appears on screen as you type, not even dots. This is normal. Type your password and press Return.
 - **Stopping a command:** If something goes wrong and you need to stop a command, press **Control-C**.
 
@@ -73,6 +74,8 @@ This short tour checks that each part of the setup works and shows you the featu
 ### Open the terminal inside Visual Studio Code
 
 3. **Open the terminal.** Press **Control-`** (the backtick key, above Tab), or choose **Terminal > New Terminal** from the menu bar. A terminal panel opens at the bottom of the window. It is the same terminal as the Terminal and iTerm2 apps, built into the editor so you can run commands next to your code. Click inside the panel to type in it. Press **Control-`** again whenever you want to hide or show it.
+
+   Notice that the text in the terminal looks different from the text in the editor above it. The editor, where you write code in files, uses the Inconsolata font; the terminal, where you type commands, uses MesloLGS NF. When you are not sure where you are typing, look at the font.
 
 ### Read your prompt
 
@@ -271,5 +274,6 @@ GitHub Copilot is built into Visual Studio Code. These guides explain how to wor
 - **oh-my-zsh**: [oh-my-zsh wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)
 - **Powerlevel10k**: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - **MesloLGS NF** font: [Powerlevel10k font guide](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
+- **Inconsolata** font: [Inconsolata on Google Fonts](https://fonts.google.com/specimen/Inconsolata)
 - **zsh-autosuggestions**: [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - **zsh-syntax-highlighting**: [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)

@@ -130,7 +130,7 @@
     "scrollbarSlider.hoverBackground": "#747474b3",
     "scrollbarSlider.activeBackground": "#666666b3",
 
-    "terminal.background": "#f0f0f0",
+    "terminal.background": "#fbfbfb",
     "terminal.foreground": "#1c1c1c",
     "terminal.ansiBlack": "#1c1c1c",
     "terminal.ansiRed": "#ed225d",
