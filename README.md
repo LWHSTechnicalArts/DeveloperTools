@@ -168,7 +168,6 @@ Visual Studio Code is set up to point out common mistakes while you type.
 Visual Studio Code saves your files automatically, the way the p5.js web editor does, so you do not need to press **Command-S** after every change.
 
 - **When it saves:** about one second after you stop typing, Visual Studio Code saves the file you are editing.
-- **How to tell:** while a file has changes that are not saved yet, its tab shows a dot instead of an **×**. When the file is saved, the dot goes away.
 - **With Live Server:** Live Server reloads your sketch in the browser every time a file is saved. Because saving is automatic, your sketch updates about a second after you stop typing. If you pause in the middle of a line, the sketch may briefly show an error; it fixes itself when you finish the line.
 - **New files:** a brand-new file has no name or folder yet. Save it once with **Command-S** and choose where it goes; after that, Visual Studio Code keeps saving it for you.
 - **Undoing a change:** autosave writes over the file each time. To go back, press **Command-Z** to undo, one step at a time, while the file is still open.
