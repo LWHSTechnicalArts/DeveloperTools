@@ -95,13 +95,22 @@ This short tour checks that each part of the setup works and shows you the featu
 
 12. **Go home and come back.** Type `~` and press Return; you are in your home folder. Type `-` and press Return; you are back in `DeveloperTools`, because `-` returns to the folder you were just in.
 
-13. **Check the folder colors.** Run `ls`. Folder names appear in blue, so you can tell them apart from files.
+13. **Check the folder names.** Run `ls`. Folder names appear in blue and end with a `/`, so you can tell them apart from files.
 
 14. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/zsh/.zshrc`. That arrow is the link the setup created: a file on your computer, `.zshrc`, is really pointer back to a file in the cloned repository.
 
+### Create and Delete a File
+
+15. **Create a file, then delete it.** Run `touch ~/practice.txt`. The `touch` command creates an empty file, here named `practice.txt` in your home folder. Run `ls ~` to see it in the list.
+
+    Now run `rm ~/practice.txt` to delete it. Files deleted with `rm` skip the Trash and cannot be recovered, so the terminal asks first. It prints `(Type y and press Return to delete, or n and Return to keep.)` and then asks `remove /Users/yourname/practice.txt?`. You must answer with a `y` or an `n`:
+
+    - Type `n` and press Return. The file is kept; run `ls ~` to check that it is still there.
+    - Run `rm ~/practice.txt` again, type `y`, and press Return. The file is deleted; run `ls ~` to check that it is gone.
+
 ### Open Projects in the Editor from your Terminal
 
-15. **Open a folder from the terminal.** While you are in `DeveloperTools`, run `code .` (the period means "this folder"). A new Visual Studio Code window opens with this folder's files in the sidebar. This is the quickest way to start working on any project: move to its folder in the terminal, then run `code .`.
+16. **Open a folder from the terminal.** While you are in `DeveloperTools`, run `code .` (the period means "this folder"). A new Visual Studio Code window opens with this folder's files in the sidebar. This is the quickest way to start working on any project: move to its folder in the terminal, then run `code .`.
 
 If a check fails, run the setup command from step 2 of the setup again, then repeat the tour. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
 
@@ -119,7 +128,10 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 | Clear the terminal | **Command-K** |
 | Go to a folder | Type its name and press **Return** |
 | Go back to the previous folder | `-` |
+| Create an empty file | `touch` *name* |
+| Delete a file (answer `y` to delete, `n` to keep) | `rm` *name* |
 | Open the current folder in Visual Studio Code | `code .` |
+| Make the editor's text bigger or smaller | Hold **Command** and scroll |
 
 ## How Visual Studio Code Helps You Find Mistakes
 
@@ -129,6 +141,7 @@ Visual Studio Code is set up to point out common mistakes while you type.
 - **Error messages on the line:** the Error Lens extension prints each error or warning right at the end of the line that caused it, so you can read the message without hovering over a squiggly underline.
 - **Spelling:** the Code Spell Checker extension underlines words it does not recognize, in blue. A misspelled function name, such as `backgroud` instead of `background`, is a common reason a sketch does not run. To stop a correctly spelled word from being flagged, click it, press **Command-period**, and choose to add it to the dictionary.
 - **In the terminal:** if you type a command that does not exist, the terminal tells you so in plain words and reminds you that the Up arrow brings the command back so you can fix it.
+- **Deleting files:** files you delete with the `rm` command skip the Trash and cannot be recovered, so the terminal reminds you of the answers and asks `remove ...?` before deleting each one. Type `y` and press Return to delete it, or `n` and Return to keep it.
 
 ## How Visual Studio Code Saves Your Work
 

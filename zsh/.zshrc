@@ -200,6 +200,19 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
   unset paletteColors colorName colorValue
 fi
 
+# Safer, clearer file commands for beginners.
+# rm asks before deleting each file, because files removed with rm skip the
+# Trash. macOS's rm prints its own question ("remove FILE?") and cannot change
+# its wording, so this function prints a reminder of the answers first, then
+# runs the real rm ("command rm") with -i to ask about each file.
+rm() {
+  print -u2 "(Type y and press Return to delete, or n and Return to keep.)"
+  command rm -i "$@"
+}
+# ls -F adds a "/" after folder names (and "*" after programs), so folders
+# stand out even without color. -G keeps oh-my-zsh's colors.
+alias ls='ls -FG'
+
 # Friendlier message for a command that does not exist. zsh runs this function
 # instead of printing its usual "command not found" error. Returning 127 keeps
 # the failure status, so the prompt still shows its pink ✘ mark.
