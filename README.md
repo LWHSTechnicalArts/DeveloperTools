@@ -62,18 +62,73 @@ Your Mac is set up.
 
 ## Check that everything works
 
-Run these checks in a new iTerm2 window. Each one takes a few seconds.
+This short tour checks that each part of the setup works and shows you the features it added. You start in Visual Studio Code, open the terminal inside it, and then try the terminal features there. Type each command yourself rather than pasting it, because several features react as you type.
 
-1. **Look at the window.** The background is light gray-white, and the prompt shows your folder name in color with small symbols, not boxes or question marks.
-2. **Check Homebrew.** Run `brew --version`. It prints a line starting with `Homebrew` and a version number.
-3. **Check the `code` command.** Run `code --version`. It prints a version number.
-4. **Check the color highlighting.** Type `echo` without pressing Return; it turns blue. Delete it and type `ecko`; it turns pink, because `ecko` is not a real command. Delete it before going on.
-5. **Check the folder colors.** Run `ls`. Folder names appear in blue.
-6. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/.zshrc`.
-7. **Check Visual Studio Code.** Open Visual Studio Code. The editor uses the light p5.js Editor Light theme. Press **Command-Shift-X** to open the Extensions view; **p5.vscode** and **Live Server** are in the list of installed extensions.
-8. **Check Visual Studio Code's terminal.** In Visual Studio Code, press **Control-`** (the key above Tab) to open the terminal. It shows the same colored prompt with symbols.
+### Check Visual Studio Code
 
-If a check fails, run the setup command from step 2 again, then repeat the checks. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
+1. **Open Visual Studio Code.** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. The editor uses the light p5.js Editor Light theme.
+
+2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode** and **Live Server** are in the list of installed extensions.
+
+### Open the terminal inside Visual Studio Code
+
+3. **Open the terminal.** Press **Control-`** (the backtick key, above Tab), or choose **Terminal > New Terminal** from the menu bar. A terminal panel opens at the bottom of the window. It is the same terminal as the Terminal and iTerm2 apps, built into the editor so you can run commands next to your code. Click inside the panel to type in it. Press **Control-`** again whenever you want to hide or show it.
+
+### Read your prompt
+
+4. **Look at the prompt.** The prompt is the area where you type, and it has two lines. The first line shows the folder you are in, on a gray background. The second line starts with a pink `❯`, and the cursor after it is where your typing appears. On the right side of the first line you see the time. If you see boxes or question marks instead of symbols, the MesloLGS NF font is missing; run the setup command again.
+
+### Run commands and read the results
+
+5. **Check Homebrew.** Run `brew --version`. It prints a line starting with `Homebrew` and a version number. A blue `✔` appears on the right side of the prompt: it means the last command succeeded.
+
+6. **Make a mistake on purpose.** Type `ecko hello`, but do not press Return yet. The word `ecko` is pale green, because it is not a real command; the terminal colors commands as you type so you can catch typos before running them. Now press Return. The terminal says `command not found`, and a pink `✘` appears on the right: it means the last command failed.
+
+7. **Fix the mistake.** Type `echo hello`. This time `echo` turns blue, because it is a real command. Press Return, and the terminal prints `hello` with a blue `✔`.
+
+### Let the terminal type for you
+
+8. **Accept a suggestion with the right arrow.** Type just `ec`. Gray text appears after your cursor, completing the line to `echo hello`: the terminal suggests commands you have run before. Press the **Right Arrow** key to accept the suggestion, then press Return to run it. If you do not want a suggestion, keep typing and it disappears.
+
+9. **Search your history with the up arrow.** Type `br` and press the **Up Arrow** key. The terminal fills in `brew --version`, the last command you ran that starts with `br`. Press Up again to go further back, or Down to come forward. Press Return to run it again, or press **Control-C** to cancel.
+
+10. **Complete names with Tab.** Type `cd ~/Doc` and press **Tab**. The terminal completes the folder name to `cd ~/Documents/`, so you never have to type a long name in full. Press Return to move into your Documents folder; the prompt now shows `Documents`.
+
+11. **Choose from a menu with Tab.** Type `cd ~/` and press **Tab** twice. A menu of the folders in your home folder appears. Use the arrow keys to highlight `DeveloperTools/`, press Return to choose it, and press Return again to move there. The prompt now shows `DeveloperTools` and, after it, `main` in blue: this folder is a git repository, `main` is its branch, and blue means nothing in it has changed.
+
+### Move between folders
+
+12. **Go home and come back.** Type `~` and press Return; you are in your home folder, because typing a folder name by itself moves you there. Type `-` and press Return; you are back in `DeveloperTools`, because `-` returns to the folder you were just in.
+
+13. **Check the folder colors.** Run `ls`. Folder names appear in blue, so you can tell them apart from files.
+
+14. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/.zshrc`. That arrow is the link the setup created.
+
+### Connect the terminal and the editor
+
+15. **Open a folder from the terminal.** While you are in `DeveloperTools`, run `code .` (the period means "this folder"). A new Visual Studio Code window opens with this folder's files in the sidebar. This is the quickest way to start working on any project: move to its folder in the terminal, then run `code .`.
+
+### Check iTerm2
+
+16. **Try the same features in iTerm2.** Open iTerm2 from your **Applications** folder. It shows the same two-line prompt on a light background, and every feature from this tour works there too. If its prompt shows boxes or question marks, iTerm2's font is not set; repeat step 7 of the setup.
+
+If a check fails, run the setup command from step 2 of the setup again, then repeat the tour. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
+
+### Quick reference
+
+| To do this | Press or type |
+|---|---|
+| Show or hide the terminal in Visual Studio Code | **Control-`** |
+| Accept the gray suggestion | **Right Arrow** |
+| Complete a command, file, or folder name | **Tab** |
+| Show a menu of choices | **Tab** twice, then the arrow keys and **Return** |
+| Find an earlier command | Type its first letters, then **Up Arrow** |
+| Search all earlier commands | **Control-R**, then type part of the command |
+| Stop a running command or cancel a line | **Control-C** |
+| Clear the terminal | **Command-K** |
+| Go to a folder | Type its name and press **Return** |
+| Go back to the previous folder | `-` |
+| Open the current folder in Visual Studio Code | `code .` |
 
 ## A note on running commands from the internet
 
