@@ -6,7 +6,7 @@
 #
 #   1. Homebrew, a "package manager" that installs other programs for you.
 #      It also installs Apple's Command Line Tools, which include git.
-#   2. iTerm2 and Visual Studio Code, installed by Homebrew.
+#   2. Visual Studio Code, installed by Homebrew.
 #   3. The zsh plugins zsh-autosuggestions and zsh-syntax-highlighting,
 #      installed by Homebrew.
 #   4. oh-my-zsh, a framework that organizes zsh themes and plugins.
@@ -76,8 +76,8 @@ get_brew_path() {
 
 # install_application installs one app with Homebrew, unless the app is
 # already in the Applications folder (installed by Homebrew or by hand).
-#   $1 = Homebrew's name for the app, such as iterm2
-#   $2 = the app's file name, such as iTerm.app
+#   $1 = Homebrew's name for the app, such as visual-studio-code
+#   $2 = the app's file name, such as Visual Studio Code.app
 install_application() {
     local package_name="$1"
     local application_name="$2"
@@ -182,8 +182,7 @@ fi
 
 
 # --- 2. Apps ----------------------------------------------------------------
-print_step "iTerm2 and Visual Studio Code"
-install_application "iterm2" "iTerm.app"
+print_step "Visual Studio Code"
 # This also puts the "code" command in Homebrew's folder, so "code" works in
 # the terminal without any setup inside Visual Studio Code.
 install_application "visual-studio-code" "Visual Studio Code.app"

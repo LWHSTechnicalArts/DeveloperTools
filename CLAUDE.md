@@ -2,7 +2,7 @@
 
 This repo
 (`LWHSTechnicalArts/DeveloperTools` on GitHub) makes every student machine match
-the p5.js web editor's **light** color scheme in Visual Studio Code, iTerm2 and
+the p5.js web editor's **light** color scheme in Visual Studio Code and
 the zsh prompt.
 
 The setup must install with a bash script and a few shared files: no menu
@@ -19,7 +19,7 @@ can replace its link with a regular file; check with `ls -la` (look for `->`).
 
 | Repo file | Symlinked from on Jeffrey's machine | What it is |
 |---|---|---|
-| `zsh/.zshrc` | `~/.zshrc` | oh-my-zsh, Powerlevel10k, nvm, conda, Homebrew zsh plugins, and the iTerm2 `SetColors` palette block |
+| `zsh/.zshrc` | `~/.zshrc` | oh-my-zsh, Powerlevel10k, nvm, conda, Homebrew zsh plugins, and the iTerm2 `SetColors` palette block (kept for Jeffrey's own iTerm2; students no longer get iTerm2) |
 | `zsh/p5js-editor-light.p10k.zsh` | `~/.p10k.zsh` | Powerlevel10k prompt config, ending with `ZSH_HIGHLIGHT_STYLES` |
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` | Jeffrey's own Visual Studio Code settings |
 | `vscode/p5js-editor-light/` | `~/.vscode/extensions/p5js-editor-light/` | Theme extension: `package.json` (publisher `local`, `uiTheme` `vs`, version 0.0.1) and `themes/p5js-editor-light-color-theme.json` |
@@ -31,7 +31,7 @@ step skips work that is already done, so each script is safe to rerun.
 
 - `bootstrap.sh` is what students run first, with the one-line command in `README.md`: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"`. Running it through `bash -c` (not `curl | bash`) keeps the terminal as standard input, so `sudo` and `read` work. It installs Apple's Command Line Tools if `xcode-select -p` fails, using Homebrew's headless method (a placeholder file in `/tmp`, then `softwareupdate -i` with the newest "Command Line Tools" label) and falling back to `xcode-select --install` plus a Return-to-continue prompt; it clones the repo into `~/DeveloperTools`, or runs `git pull --ff-only` if it is already there (continuing on failure), and refuses if `~/DeveloperTools` exists but is not a git repository; then it `exec`s `scripts/setup.sh`. Students get `bootstrap.sh` from `main` on GitHub, so changes reach them only after a push.
 - `setup.sh` runs the install and configure steps (`bash scripts/setup.sh` from the repo folder). It runs `install.sh`, then runs `configure.sh` only if `install.sh` exited with status 0; otherwise it prints an error and exits 1.
-- `install.sh` installs, in order: Homebrew (`sudo -v` caches the administrator password, then the official installer runs with `NONINTERACTIVE=1`, which makes it use `sudo -n`); the `brew shellenv` line appended to `~/.zprofile`; iTerm2 and Visual Studio Code with `brew install --cask` (skipped when the app is already in `/Applications`, since `brew` refuses to overwrite an app it did not install); the Homebrew formulae `zsh-autosuggestions` and `zsh-syntax-highlighting`; oh-my-zsh (`KEEP_ZSHRC=yes`, `--unattended`); `git clone --depth=1` of Powerlevel10k into `~/.oh-my-zsh/custom/themes/powerlevel10k`; and the four MesloLGS NF `.ttf` files from `romkatv/powerlevel10k-media` into `~/Library/Fonts`. Last, it installs the Homebrew cask `font-inconsolata` (Inconsolata, SIL Open Font License) for the editor. iTerm2 preferences (font, colors, mark indicators) are not automated.
+- `install.sh` installs, in order: Homebrew (`sudo -v` caches the administrator password, then the official installer runs with `NONINTERACTIVE=1`, which makes it use `sudo -n`); the `brew shellenv` line appended to `~/.zprofile`; Visual Studio Code with `brew install --cask` (skipped when the app is already in `/Applications`, since `brew` refuses to overwrite an app it did not install); the Homebrew formulae `zsh-autosuggestions` and `zsh-syntax-highlighting`; oh-my-zsh (`KEEP_ZSHRC=yes`, `--unattended`); `git clone --depth=1` of Powerlevel10k into `~/.oh-my-zsh/custom/themes/powerlevel10k`; and the four MesloLGS NF `.ttf` files from `romkatv/powerlevel10k-media` into `~/Library/Fonts`. Last, it installs the Homebrew cask `font-inconsolata` (Inconsolata, SIL Open Font License) for the editor.
 - `configure.sh` recreates all four symlinks, moving anything in the way into `~/DeveloperTools-backups/<date_time>/` and creating missing parent folders. It then installs each extension in `vscode/extensions.txt` (one `publisher.name` per line; `#` comments and blank lines skipped) with `code --install-extension`, using `code` from the command path or from inside `/Applications/Visual Studio Code.app`. The list holds `samplavigne.p5-vscode` and `ritwickdey.LiveServer`; p5.vscode's extension pack already includes Live Server, and Live Server is not built into Visual Studio Code. GitHub Copilot is built in (`GitHub.copilot-chat`), so it is not in the list.
 
 Facts about these files that matter for distributing them to students:
@@ -59,6 +59,7 @@ Values come from the p5.js web editor's variables stylesheet (light theme).
 
 ## Decisions and reasons
 
+- iTerm2 was removed from the student setup on 2026-10-17 to reduce complexity: students use Visual Studio Code's built-in terminal, whose font, size and colors all come from `settings.json` and the theme with no manual steps. iTerm2 needed a by-hand font change. The guarded iTerm2 `SetColors` block stays in `.zshrc` because it does nothing in other terminals. The iTerm2 notes below are kept as history.
 - The prompt uses no green, because light green is unreadable on white. Clean version-control state and success status are blue; untracked files are brown.
 - Exception, by Jeffrey's choice on 2026-10-17: zsh-syntax-highlighting colors invalid commands a pale yellow-green, bold `#afc641` (`#96b403` mixed 25% toward the page color `#fbfbfb`), set as `ZSH_HIGHLIGHT_STYLES[unknown-token]` in `zsh/p5js-editor-light.p10k.zsh`. It is deliberately outside the p5.js palette so mistakes look clearly wrong next to the magenta accent. It contrasts about 1.9:1 on `#fbfbfb`, the background of iTerm2 and of Visual Studio Code's terminal. Valid commands stay blue `#0b7ca9`, reserved words brown `#7a5a3a`.
 - The prompt has two lines. The top line has directory and version-control segments on the left and status, command duration, background jobs and time on the right. The second line has the prompt character.
@@ -77,11 +78,8 @@ Values come from the p5.js web editor's variables stylesheet (light theme).
 
 1. Run the bootstrap command on a real second Mac, ideally a fresh one. So far `bootstrap.sh`, `setup.sh` and `install.sh` have only run against stub commands, so the headless Command Line Tools install is untested.
 2. Decide whether the shared `settings.json` keeps the Vim, Claude Code and Copilot entries.
-3. Automate iTerm2's font and colors (custom preferences folder or Dynamic Profiles), or decide not to.
-4. Test two prompt details never checked in a real terminal: the gap between the left and right parts of the top line, and the closing arrow after the version-control segment.
-5. Test palette output with `brew install --dry-run ffmpeg`. An empty `brew upgrade --dry-run` means nothing is outdated.
-6. Baseline test: set the iTerm2 profile to Solarized Dark and confirm a new window still opens light, then set it to the built-in "Light Background" preset.
-7. Decide whether students use iTerm2.
+3. Test two prompt details never checked in a real terminal: the gap between the left and right parts of the top line, and the closing arrow after the version-control segment.
+4. Test palette output with `brew install --dry-run ffmpeg`. An empty `brew upgrade --dry-run` means nothing is outdated.
 
 ## Working here
 

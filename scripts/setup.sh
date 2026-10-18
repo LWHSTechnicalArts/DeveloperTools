@@ -3,7 +3,7 @@
 # --------
 # This is the one script to run on a new Mac. It does two things in order:
 #
-#   1. install.sh installs the programs: Homebrew, iTerm2, Visual Studio
+#   1. install.sh installs the programs: Homebrew, Visual Studio
 #      Code, oh-my-zsh, Powerlevel10k, the zsh plugins, and the font.
 #   2. configure.sh links the configuration files to this repository and
 #      installs the Visual Studio Code extensions.
