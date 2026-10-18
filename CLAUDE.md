@@ -1,0 +1,107 @@
+# DeveloperTools
+
+This repo
+(`LWHSTechnicalArts/DeveloperTools` on GitHub) makes every student machine match
+the p5.js web editor's **light** color scheme in Visual Studio Code, iTerm2 and
+the zsh prompt.
+
+The setup must install with a bash script and a few shared files: no menu
+navigation and no point-and-click steps.
+
+## Repo contents
+
+The repo is the single source of truth. Since 2026-10-17, all four live
+locations on Jeffrey's machine are **symlinks** into this repo, so edits here
+take effect live, and changes made through Visual Studio Code's Settings screen
+land in `vscode/settings.json`. The originals are backed up in
+`~/DeveloperTools-backups/2026-10-17/`. A program that rewrites one of these files
+can replace its link with a regular file; check with `ls -la` (look for `->`).
+
+| Repo file | Symlinked from on Jeffrey's machine | What it is |
+|---|---|---|
+| `.zshrc` | `~/.zshrc` | oh-my-zsh, Powerlevel10k, nvm, conda, Homebrew zsh plugins, and the iTerm2 `SetColors` palette block |
+| `p5js-editor-light.p10k.zsh` | `~/.p10k.zsh` | Powerlevel10k prompt config, ending with `ZSH_HIGHLIGHT_STYLES` |
+| `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` | Jeffrey's own Visual Studio Code settings |
+| `vscode/p5js-editor-light/` | `~/.vscode/extensions/p5js-editor-light/` | Theme extension: `package.json` (publisher `local`, `uiTheme` `vs`, version 0.0.1) and `themes/p5js-editor-light-color-theme.json` |
+
+`setup.sh` recreates all four symlinks on any Mac (`bash setup.sh` from the repo
+folder). It moves anything already in the way into
+`~/DeveloperTools-backups/<date_time>/`, skips links that are already correct,
+and creates missing parent folders. It installs nothing. Its comments teach bash
+to students, so keep them accurate and in that teaching style when editing it.
+It must run on macOS's built-in bash 3.2: no associative arrays, `mapfile` or
+`${variable,,}`.
+
+Facts about these files that matter for distributing them to students:
+
+- `.zshrc` contains machine-specific lines: `/Users/jtrevino/...` paths for oh-my-zsh, zsh-syntax-highlighting, miniconda and `~/.local/bin`, the `lars` alias, nvm, and TeX paths.
+- `vscode/settings.json` contains entries students may not need: Vim cursor style, Claude Code options, GitHub Copilot options, and `python.defaultInterpreterPath` set to `/usr/local/bin/python3`.
+- The theme's terminal bright green is `#47820a` and bright blue is `#0b7ca9`.
+
+Files from the earlier Chat-side work that are **not** in this repo:
+`setup-vscode.sh`, `p5js-editor-light.itermcolors`, `p5js-editor-light.zip`, and
+`p5js-editor-dark-color-theme.json`. The dark theme was built by mistake and is
+superseded.
+
+## Palette
+
+Values come from the p5.js web editor's variables stylesheet (light theme).
+
+- Surfaces: page `#fbfbfb`, console `#f0f0f0`, selected `#d9d9d9`, borders `#a6a6a6`, text `#333333`.
+- Syntax: comments `#747474`; variables and definitions `#0b7ca9`; strings `#47820a`; regular expressions `#a06801`; atoms and tags `#d52889`; keywords and operators `#7a5a3a`; properties, numbers, attributes and local variables `#333333`.
+- Accents: magenta `#ed225d`, active magenta `#f10046`.
+- Unverified: the editor's CodeMirror theme files were never retrieved, so the operator color and the line-number color (`#747474`) are guesses.
+
+## Decisions and reasons
+
+- The prompt uses no green, because light green is unreadable on white. Clean version-control state and success status are blue; untracked files are brown.
+- The prompt has two lines. The top line has directory and version-control segments on the left and status, command duration, background jobs and time on the right. The second line has the prompt character.
+- Hexadecimal prompt colors need a terminal with 24-bit color.
+- `ZSH_HIGHLIGHT_STYLES` only takes effect when the zsh-syntax-highlighting plugin is installed.
+- Colors printed by programs such as Homebrew come from the terminal palette, not the prompt. The `.zshrc` block sets the whole iTerm2 palette per session with `OSC 1337 ; SetColors=key=value`, guarded by `TERM_PROGRAM == iTerm.app`, after the line that sources `~/.p10k.zsh`. Source: https://iterm2.com/documentation-escape-codes.html
+- Set the palette in one block. Jeffrey rejected palette lines added one slot at a time. Keep color changes inside the named config files, not in ad hoc palette lines.
+- `terminal.integrated.minimumContrastRatio` is 1, because Visual Studio Code otherwise shifts text below 4.5:1 contrast, which turned `#ed225d` on `#f0f0f0` (about 3.7:1) dark red. A theme cannot change this setting. Source: https://code.visualstudio.com/docs/terminal/appearance
+- The setup script installs the MesloLGS NF font by downloading it from Powerlevel10k's media repository, not by bundling it, because redistribution terms are unconfirmed. Shipping a finished prompt config skips the `p10k configure` wizard that would otherwise offer the font. Source: https://github.com/romkatv/powerlevel10k/blob/master/font.md
+- iTerm2 loads profiles live from `~/Library/Application Support/iTerm2/DynamicProfiles/`. This could set font and colors without menus, but it is not built, and it is unconfirmed whether a dynamic profile can become the default without a click.
+- The blue right-pointing triangle beside the prompt is an iTerm2 mark indicator. It is hidden only through Preferences > Profiles > Terminal > "Show mark indicators", not through the prompt config.
+- The `.zshrc` color block does nothing in the built-in macOS Terminal.
+
+## Open tasks
+
+1. Write `setup-vscode.sh` for the real layout: back up the student's settings file, copy in `vscode/settings.json`, and copy `vscode/p5js-editor-light/` into `~/.vscode/extensions`.
+2. Decide how to handle machine-specific and extension-specific entries in the shared `settings.json` and `.zshrc`, especially the Python interpreter path and the `/Users/jtrevino` paths.
+3. Build the main setup script: install Powerlevel10k, download MesloLGS NF, copy the prompt config to `~/.p10k.zsh`, install zsh-autosuggestions and zsh-syntax-highlighting, append the color block after the `~/.p10k.zsh` source line, and call `setup-vscode.sh`.
+4. Test three prompt details never run in zsh: the gap between the left and right parts of the top line, the closing arrow after the version-control segment, and the prompt character's `#fbfbfb` background, which may show as a light box on the Visual Studio Code terminal's `#f0f0f0` panel.
+5. Test palette output with `brew install --dry-run ffmpeg`. An empty `brew upgrade --dry-run` means nothing is outdated.
+6. Baseline test: set the iTerm2 profile to Solarized Dark and confirm a new window still opens light, then set it to the built-in "Light Background" preset.
+7. Decide whether students use iTerm2.
+
+## Working here
+
+- The GitHub org is shared with students, so keep secrets, tokens and private details out of committed files.
+- Keep the palette consistent across the terminal block, the prompt config and the Visual Studio Code theme.
+- Note any new dependency the setup gains.
+- Validate before calling a change done: `zsh -n` for shell files, `bash -n` for bash scripts, and `python3 -m json.tool` for JSON.
+- Package extensions as a zip with one top-level folder.
+- Commit on `main` with short, lowercase, descriptive messages, matching the existing history.
+
+## Code conventions
+
+- Use full-word variable names.
+- Start `for` loop indexes at 0.
+- Move long math out of function arguments into named variables.
+- Name functions with verbs, with a `get` prefix for functions that return values.
+
+## How to reply to Jeffrey
+
+- Answer concisely, in bulleted complete sentences instead of paragraphs.
+- Never evaluate Jeffrey's choices, and never call anything good, correct or wise unless he asks a yes-or-no question. Say plainly when something is wrong.
+- Never use an acronym except in parentheses after the fully spelled-out name.
+- Never build or offer anything he has not explicitly requested, and never ask him for more information.
+- Cite every statistic and statement of fact.
+- Prefer detailed text explanations. Make a visualization only when he says "show me" or asks for a preview.
+- Add no extension, bonus or "further ideas" sections.
+- Open each paragraph with a topic sentence, never a bold label fragment.
+- Do not refer forward to material that comes later.
+- Give direct instructions instead of "just remember to" rules, and commit to one method.
+- Give installation steps as numbered actions.
