@@ -21,7 +21,7 @@
 #
 # How to run it (from inside the DeveloperTools folder):
 #
-#     bash install.sh
+#     bash scripts/install.sh
 #
 # configure.sh explains the basics (comments, variables, functions, "if",
 # arrays, and "for" loops). This file explains the new things it uses.

@@ -13,7 +13,7 @@
 #
 # How to run it (from inside the DeveloperTools folder):
 #
-#     bash setup.sh
+#     bash scripts/setup.sh
 #
 # configure.sh and install.sh explain the bash in more detail.
 
@@ -21,15 +21,15 @@
 # Stop on any failure, on unset variables, and on failures inside pipelines.
 set -euo pipefail
 
-# The folder this script is in, so the other two scripts can be found no
-# matter which folder you run this from. (configure.sh explains each part.)
-repository_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# The scripts folder this file is in, so the other two scripts can be found
+# no matter which folder you run this from. (configure.sh explains each part.)
+scripts_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Every command reports an "exit status" when it finishes: 0 means success,
 # and any other number means failure. "if COMMAND; then" checks that status
 # directly: it takes the "then" branch on 0 and the "else" branch otherwise.
-if bash "$repository_directory/install.sh"; then
-    bash "$repository_directory/configure.sh"
+if bash "$scripts_directory/install.sh"; then
+    bash "$scripts_directory/configure.sh"
 else
     # ">&2" sends the message to "standard error," the channel for error
     # messages, instead of normal output.

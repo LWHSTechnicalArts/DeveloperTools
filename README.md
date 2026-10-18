@@ -41,7 +41,7 @@ Follow these steps in order.
 2. **Run the setup command.** Copy this whole line, paste it into Terminal, and press **Return**:
 
    ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/bootstrap.sh)"
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
    ```
 
    This command downloads a script named `bootstrap.sh` from this repository and runs it. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
@@ -102,7 +102,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 13. **Check the folder colors.** Run `ls`. Folder names appear in blue, so you can tell them apart from files.
 
-14. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/.zshrc`. That arrow is the link the setup created.
+14. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/zsh/.zshrc`. That arrow is the link the setup created.
 
 ### Connect the terminal and the editor
 
@@ -132,7 +132,7 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 
 ## A note on running commands from the internet
 
-The setup command runs a script straight from the internet, without showing it to you first. Homebrew's own installer works the same way. Only run commands like this when you trust where they come from: here, that is this repository, which your teacher maintains. You can read [bootstrap.sh](bootstrap.sh) before you run it.
+The setup command runs a script straight from the internet, without showing it to you first. Homebrew's own installer works the same way. Only run commands like this when you trust where they come from: here, that is this repository, which your teacher maintains. You can read [bootstrap.sh](scripts/bootstrap.sh) before you run it.
 
 ## Keep the folder where it is
 
@@ -156,6 +156,14 @@ If none of these fixes the problem, take a screenshot of the Terminal window and
 ## How the scripts work
 
 The scripts are written to be read. If you are curious how a bash script works, open them in Visual Studio Code; every step has a comment explaining what it does.
+
+The repository has three folders:
+
+- `scripts/` holds the four setup scripts described below.
+- `zsh/` holds the terminal settings: `.zshrc`, the shell's settings file, and `p5js-editor-light.p10k.zsh`, the prompt's colors and layout.
+- `vscode/` holds Visual Studio Code's `settings.json`, the list of extensions to install in `extensions.txt`, and the p5.js Editor Light theme in `p5js-editor-light/`.
+
+The scripts, all in the `scripts/` folder:
 
 - `bootstrap.sh` is what the setup command runs. It installs Apple's Command Line Tools, downloads this repository, and runs `setup.sh`.
 - `setup.sh` runs the other two scripts in order, and stops if the installs fail.
@@ -222,7 +230,7 @@ These rules come from `CLAUDE.md`, and Claude Code follows them too:
 - **Keep personal settings out of the repository.** Shell settings for your machine only go in `~/.zshrc.local`, which the shared `.zshrc` loads if it exists. Never commit passwords, tokens, or paths that contain your username.
 - **Keep the scripts readable for students.** Every new piece of bash syntax gets a comment that explains it. The scripts must run on the bash version built into macOS (3.2), so avoid associative arrays, `mapfile`, and `${variable,,}`.
 - **Keep the palette consistent.** A color changed in the terminal block, the prompt config, or the Visual Studio Code theme usually needs the same change in the other two.
-- **Check your work before committing.** Run `bash -n` on any bash script you changed, `zsh -n .zshrc` after changing the shell config, and `python3 -m json.tool` on any JavaScript Object Notation (JSON) file you changed.
+- **Check your work before committing.** Run `bash -n` on any bash script you changed, `zsh -n zsh/.zshrc` after changing the shell config, and `python3 -m json.tool` on any JavaScript Object Notation (JSON) file you changed.
 - **Write short commit messages.** Use short, lowercase, descriptive messages that match the existing history, for example `added extensions list to configure.sh`.
 
 ---

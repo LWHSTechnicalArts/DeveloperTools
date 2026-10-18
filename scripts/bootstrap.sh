@@ -5,7 +5,7 @@
 # the Mac and then hands off to setup.sh. You run it by pasting one line into
 # Terminal (the README shows it):
 #
-#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/bootstrap.sh)"
+#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
 #
 # That line works before the repository is on your Mac: curl downloads this
 # file from GitHub, and "$( ... )" hands its text to bash to run.
@@ -136,4 +136,4 @@ print_step "Running setup.sh"
 
 # "exec" replaces this script with setup.sh instead of running it alongside,
 # so setup.sh's success or failure becomes this script's result.
-exec bash "$repository_directory/setup.sh"
+exec bash "$repository_directory/scripts/setup.sh"

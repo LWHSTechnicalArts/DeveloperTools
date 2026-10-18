@@ -15,7 +15,7 @@
 #
 # How to run it (from inside the DeveloperTools folder):
 #
-#     bash configure.sh
+#     bash scripts/configure.sh
 #
 # Every line that starts with "#" is a comment. Bash skips comments; they are
 # only there for people reading the file.
@@ -35,16 +35,18 @@ set -euo pipefail
 # Inside a function, "$1" is the first thing passed to it, "$2" the second,
 # and so on.
 
-# get_repository_directory prints the full path of the folder this script is
-# in. Bash functions "return" text by printing it with echo; whoever calls the
-# function captures that text with $( ... ).
+# get_repository_directory prints the full path of the repository: the
+# folder one level above the scripts folder this file is in. Bash functions
+# "return" text by printing it with echo; whoever calls the function captures
+# that text with $( ... ).
 get_repository_directory() {
     # ${BASH_SOURCE[0]} is the path of this script file.
-    # dirname strips the file name and leaves the folder.
-    # cd into that folder, then pwd ("print working directory") prints its
-    # full path. The parentheses run this in a sub-shell, so the cd does not
-    # affect the rest of the script.
-    (cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+    # dirname strips the file name and leaves the folder (scripts).
+    # ".." means "the folder above," so cd moves up into the repository.
+    # pwd ("print working directory") then prints its full path. The
+    # parentheses run this in a sub-shell, so the cd does not affect the rest
+    # of the script.
+    (cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 }
 
 # link_configuration_file makes one symbolic link ("symlink").
@@ -144,8 +146,8 @@ backup_count=0
 # These two arrays are lined up: item 0 in source_paths belongs with item 0
 # in target_paths, item 1 with item 1, and so on.
 source_paths=(
-    "$repository_directory/.zshrc"
-    "$repository_directory/p5js-editor-light.p10k.zsh"
+    "$repository_directory/zsh/.zshrc"
+    "$repository_directory/zsh/p5js-editor-light.p10k.zsh"
     "$repository_directory/vscode/settings.json"
     "$repository_directory/vscode/p5js-editor-light"
 )
