@@ -1,4 +1,4 @@
-# DeveloperTools
+# Set Up Your Machine for Agentic Engineering
 
 A *Bash script* is a sequence of commands in a file that the computer can run one by one, usually to move other files around. Bash is a programming language that uses the same fundamentals we've seen: variables, conditional statements, and for loops. 
 
