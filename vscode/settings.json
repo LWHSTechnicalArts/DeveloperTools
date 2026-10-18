@@ -5,7 +5,6 @@
     "terminal.integrated.fontFamily": "MesloLGS NF",
     "claudeCode.enableNewConversationShortcut": true,
     "terminal.integrated.shellIntegration.enabled": true,
-    "python.defaultInterpreterPath": "/usr/local/bin/python3",
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,

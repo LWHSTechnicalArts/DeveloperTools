@@ -30,13 +30,15 @@ built-in bash 3.2: no associative arrays, `mapfile` or `${variable,,}`. Every
 step skips work that is already done, so each script is safe to rerun.
 
 - `setup.sh` is the one to run on a new Mac (`bash setup.sh` from the repo folder). It runs `install.sh`, then runs `configure.sh` only if `install.sh` exited with status 0; otherwise it prints an error and exits 1.
-- `install.sh` installs, in order: Homebrew (`sudo -v` caches the administrator password, then the official installer runs with `NONINTERACTIVE=1`, which makes it use `sudo -n`); the `brew shellenv` line appended to `~/.zprofile`; iTerm2 and Visual Studio Code with `brew install --cask` (skipped when the app is already in `/Applications`, since `brew` refuses to overwrite an app it did not install); the Homebrew formulae `zsh-autosuggestions` and `zsh-syntax-highlighting`; oh-my-zsh (`KEEP_ZSHRC=yes`, `--unattended`); `git clone --depth=1` of Powerlevel10k into `~/.oh-my-zsh/custom/themes/powerlevel10k` and of zsh-syntax-highlighting into `~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting`; and the four MesloLGS NF `.ttf` files from `romkatv/powerlevel10k-media` into `~/Library/Fonts`. zsh-syntax-highlighting comes from both Homebrew and git because `.zshrc` sources the git copy but points `ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR` at Homebrew's. iTerm2 preferences (font, colors, mark indicators) are not automated.
+- `install.sh` installs, in order: Homebrew (`sudo -v` caches the administrator password, then the official installer runs with `NONINTERACTIVE=1`, which makes it use `sudo -n`); the `brew shellenv` line appended to `~/.zprofile`; iTerm2 and Visual Studio Code with `brew install --cask` (skipped when the app is already in `/Applications`, since `brew` refuses to overwrite an app it did not install); the Homebrew formulae `zsh-autosuggestions` and `zsh-syntax-highlighting`; oh-my-zsh (`KEEP_ZSHRC=yes`, `--unattended`); `git clone --depth=1` of Powerlevel10k into `~/.oh-my-zsh/custom/themes/powerlevel10k`; and the four MesloLGS NF `.ttf` files from `romkatv/powerlevel10k-media` into `~/Library/Fonts`. iTerm2 preferences (font, colors, mark indicators) are not automated.
 - `configure.sh` recreates all four symlinks, moving anything in the way into `~/DeveloperTools-backups/<date_time>/` and creating missing parent folders. It then installs each extension in `vscode/extensions.txt` (one `publisher.name` per line; `#` comments and blank lines skipped) with `code --install-extension`, using `code` from the command path or from inside `/Applications/Visual Studio Code.app`. The list holds `samplavigne.p5-vscode` and `ritwickdey.LiveServer`; p5.vscode's extension pack already includes Live Server, and Live Server is not built into Visual Studio Code. GitHub Copilot is built in (`GitHub.copilot-chat`), so it is not in the list.
 
 Facts about these files that matter for distributing them to students:
 
-- `.zshrc` contains machine-specific lines: `/Users/jtrevino/...` paths for oh-my-zsh, zsh-syntax-highlighting, miniconda and `~/.local/bin`, the `lars` alias, nvm, and TeX paths.
-- `vscode/settings.json` contains entries students may not need: Vim cursor style, Claude Code options, GitHub Copilot options, and `python.defaultInterpreterPath` set to `/usr/local/bin/python3`.
+- `.zshrc` has no machine-specific paths. It uses `$HOME/.oh-my-zsh` and loads both zsh plugins from `${HOMEBREW_PREFIX:-/opt/homebrew}/share/...` (`HOMEBREW_PREFIX` comes from `brew shellenv` in `~/.zprofile`). Its last line sources `~/.zshrc.local` if that file exists.
+- Machine-specific shell settings go in `~/.zshrc.local`, which lives outside the repo. Jeffrey's holds only the conda block. The TeX path comes from `/etc/paths.d/TeX` and `$HOME/.local/bin` from `~/.zprofile`. Put new personal settings there, not in `.zshrc`.
+- `vscode/settings.json` has no file paths. Visual Studio Code user settings cannot include another file, so per-machine settings have no equivalent of `~/.zshrc.local`. It still has entries for extensions students do not get: Vim cursor style and two Claude Code options, plus GitHub Copilot options.
+- Jeffrey's machine still has an unused git copy of zsh-syntax-highlighting in `~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting`.
 - The theme's terminal bright green is `#47820a` and bright blue is `#0b7ca9`.
 
 Files from the earlier Chat-side work that are **not** in this repo:
@@ -70,7 +72,7 @@ Values come from the p5.js web editor's variables stylesheet (light theme).
 ## Open tasks
 
 1. Run `setup.sh` on a real second Mac. So far it has only run against stub commands.
-2. Decide how to handle machine-specific and extension-specific entries in the shared `settings.json` and `.zshrc`, especially the Python interpreter path and the `/Users/jtrevino` paths.
+2. Decide whether the shared `settings.json` keeps the Vim, Claude Code and Copilot entries.
 3. Automate iTerm2's font and colors (custom preferences folder or Dynamic Profiles), or decide not to.
 4. Test three prompt details never run in zsh: the gap between the left and right parts of the top line, the closing arrow after the version-control segment, and the prompt character's `#fbfbfb` background, which may show as a light box on the Visual Studio Code terminal's `#f0f0f0` panel.
 5. Test palette output with `brew install --dry-run ffmpeg`. An empty `brew upgrade --dry-run` means nothing is outdated.

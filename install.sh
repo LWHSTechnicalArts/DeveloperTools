@@ -10,8 +10,7 @@
 #   3. The zsh plugins zsh-autosuggestions and zsh-syntax-highlighting,
 #      installed by Homebrew.
 #   4. oh-my-zsh, a framework that organizes zsh themes and plugins.
-#   5. Powerlevel10k (the prompt theme) and a second copy of
-#      zsh-syntax-highlighting, both downloaded into oh-my-zsh with git.
+#   5. Powerlevel10k, the prompt theme, downloaded into oh-my-zsh with git.
 #   6. The MesloLGS NF font, which has the symbols the prompt draws.
 #
 # zsh itself needs no installing: it is the default shell on every Mac since
@@ -190,8 +189,7 @@ install_application "visual-studio-code" "Visual Studio Code.app"
 
 # --- 3. zsh plugins from Homebrew -------------------------------------------
 print_step "zsh plugins"
-# .zshrc loads zsh-autosuggestions from Homebrew's folder, and reads
-# zsh-syntax-highlighting's "highlighters" from Homebrew's folder too.
+# .zshrc loads both plugins from Homebrew's folder.
 install_command_line_package "zsh-autosuggestions"
 install_command_line_package "zsh-syntax-highlighting"
 
@@ -212,18 +210,13 @@ else
 fi
 
 
-# --- 5. Powerlevel10k and zsh-syntax-highlighting in oh-my-zsh --------------
-print_step "Powerlevel10k and oh-my-zsh plugins"
+# --- 5. Powerlevel10k --------------------------------------------------------
+print_step "Powerlevel10k"
 # .zshrc sets ZSH_THEME="powerlevel10k/powerlevel10k", so oh-my-zsh looks for
 # the theme in custom/themes/powerlevel10k.
 clone_repository "https://github.com/romkatv/powerlevel10k.git" \
     "$oh_my_zsh_custom_directory/themes/powerlevel10k"
 # A "\" at the very end of a line continues the command on the next line.
-
-# .zshrc loads zsh-syntax-highlighting itself from oh-my-zsh's custom plugins
-# folder, so it needs this copy as well as Homebrew's.
-clone_repository "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
-    "$oh_my_zsh_custom_directory/plugins/zsh-syntax-highlighting"
 
 
 # --- 6. MesloLGS NF font ----------------------------------------------------

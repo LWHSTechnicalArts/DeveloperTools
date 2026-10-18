@@ -11,7 +11,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jtrevino/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -133,17 +133,12 @@ echo -e "\033]6;1;bg;red;brightness;18\a"
 echo -e "\033]6;1;bg;green;brightness;26\a"
 echo -e "\033]6;1;bg;blue;brightness;33\a"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 
 # alias python3="/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14"
 # alias pip3="/Library/Frameworks/Python.framework/Versions/3.14/bin/pip3.14"
 # alias python='python3'
 # alias pip='pip3'
-alias lars='cd ~/Music/musicWithMClars'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -162,39 +157,13 @@ printf '\e]4;12;#0b7ca9\e\\'
 export CLICOLOR=1
 export LSCOLORS='exfxcxdxbxegedabagexex'
 
-# lilypond
-export PATH=$PATH:~/bin
-
-# tex
-export PATH=$PATH:/Library/TeX/texbin
-
-# breakpoints with ipdb instead of pdb
-export PYTHONBREAKPOINT=ipdb.set_trace
-fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit ; compinit
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
-source /Users/jtrevino/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Created by `pipx` on 2025-08-16 04:51:24
-export PATH="$PATH:/Users/jtrevino/.local/bin"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jtrevino/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/jtrevino/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jtrevino/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jtrevino/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# zsh plugins installed by Homebrew. HOMEBREW_PREFIX comes from the
+# `brew shellenv` line in ~/.zprofile; /opt/homebrew is the Apple-chip default.
+source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Terminal color profile setup
 if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
@@ -230,3 +199,7 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
   done
   unset paletteColors colorName colorValue
 fi
+
+# Machine-specific settings live outside this repository, in ~/.zshrc.local.
+# The file is optional; on machines without it, this line does nothing.
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
