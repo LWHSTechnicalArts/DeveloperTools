@@ -3,6 +3,9 @@
     "vim.cursorStylePerMode.insert": "line",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 18,
+    "editor.fontFamily": "Roboto Mono, Menlo, monospace",
+    "editor.fontSize": 18,
     "claudeCode.enableNewConversationShortcut": true,
     "terminal.integrated.shellIntegration.enabled": true,
     "github.copilot.enable": {
