@@ -132,7 +132,7 @@ ZSH_HIGHLIGHT_STYLES[precommand]='fg=#0b7ca9,underline'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#0b7ca9,underline'
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=#0b7ca9,underline'
 ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#7a5a3a'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ed225d,bold'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#afc641,bold'
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
