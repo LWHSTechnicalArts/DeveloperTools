@@ -40,7 +40,7 @@ Follow these steps in order.
 
 1. **Open Terminal.** Press **Command-Space** to open Spotlight, type `Terminal`, and press **Return**. A window with a blinking cursor opens.
 
-2. **Run the setup command.** Copy this whole line, paste it into Terminal, and press **Return**:
+2. **Run the setup command.** Copy this whole line (cmd+C or press the two overlapping squares on the right edge of the code snippet), paste it into Terminal (cmd+V), and press **Return**:
 
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
