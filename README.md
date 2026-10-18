@@ -1,6 +1,8 @@
 # DeveloperTools
 
-In about 30 minutes, the script in this repository will automatically set up your Mac for Tech Arts code & design projects. It installs the tools we use for agentic engineering. And for a more unified and inviting learning experience, it also matches the visual style of Visual Studio Code and your terminal prompt to the light color scheme of the [p5.js web editor](https://editor.p5js.org).
+A *Bash script* is a sequence of commands in a file that the computer can run one by one, usually to move other files around. Bash is a programming language that uses the same fundamentals we've seen: variables, conditional statements, and for loops. 
+
+This Bash script sets up your Mac for Tech Arts code & design projects. It installs tools for *agentic engineering* (building code by prompting a language model that can change files on your computer), as well as Sam Lavigne's p5.js VS Code extension, p5.vscode, which enables you to build and run p5.js sketches within VS Code. For a more unified and inviting learning experience, the script also matches the visual style of Visual Studio Code and your terminal prompt to the light color scheme of the [p5.js web editor](https://editor.p5js.org).
 
 ## What the setup does
 
@@ -15,7 +17,7 @@ The setup script installs these programs and settings for you:
 
 The script does not delete anything. If your Mac already has one of the settings files it replaces, the script moves your old file into a folder named `DeveloperTools-backups` in your home folder.
 
-## Before you start
+## Before You Start
 
 You need three things before you begin:
 
@@ -23,7 +25,7 @@ You need three things before you begin:
 - **The password you use to log in to your Mac.** Your account must be an administrator account. If the script says you are not an administrator, you need to logout and log in as the admin user.
 - **About 30 minutes.** Most of that time is waiting while things download.
 
-## Terminal basics
+## Terminal Basics
 
 Terminal is an app where you control your Mac by typing commands instead of pointing and clicking. You will only need a few skills for this setup:
 
@@ -32,7 +34,7 @@ Terminal is an app where you control your Mac by typing commands instead of poin
 - **Typing your password:** When Terminal asks for your password, nothing appears on screen as you type, not even dots. This is normal. Type your password and press Return.
 - **Stopping a command:** If something goes wrong and you need to stop a command, press **Control-C**.
 
-## Set up your Mac
+## Set Up your Mac
 
 Follow these steps in order.
 
@@ -43,8 +45,7 @@ Follow these steps in order.
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
    ```
-
-   A *bash script* is a sequence of terminal commands in a file that the computer can run one by one. Bash is a new programming language that uses the same fundamentals we've seen: variables, conditional statements, and for loops. This command downloads a script named `bootstrap.sh` from this repository and runs it. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
+This command downloads a script named `bootstrap.sh` from this repository and runs it. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
 
 3. **Type your password when asked.** Type your Mac login password and press **Return**. The script may ask more than once, because some steps take longer than macOS remembers your password.
 
@@ -54,33 +55,33 @@ Follow these steps in order.
 
 Your Mac is set up.
 
-## Check that everything works
+## Check that Everything Works
 
 This short tour checks that each part of the setup works and shows you the features it added. You start in Visual Studio Code, open the terminal inside it, and then try the terminal features there. Type each command yourself rather than pasting it, because several features react as you type.
 
 ### Check Visual Studio Code
 
-1. **Open Visual Studio Code.** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. If macOS asks whether you are sure you want to open it, click **Open**. The editor uses the light p5.js Editor Light theme.
+1. **Open Visual Studio Code (VS Code).** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. If macOS asks whether you are sure you want to open it, click **Open**. The editor uses the light p5.js Editor Light theme.
 
 2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode** and **Live Server** are in the list of installed extensions.
 
-### Open the terminal inside Visual Studio Code
+### Open the Terminal Inside Visual Studio Code
 
 3. **Open the terminal.** Press **Control-\`** (the backtick key, above Tab), or choose **Terminal > New Terminal** from the menu bar. A terminal panel opens at the bottom of the window. It works like the Terminal app, but it is built into the editor so you can run commands next to your code. Click inside the panel to type in it. Press **Control-`** again whenever you want to hide or show it.
 
-### Read your prompt
+### Read Your Prompt
 
-4. **Look at the prompt.** The prompt is the area where you type, and it has two lines. The first line shows the folder you are in, on a gray background. The second line starts with a pink `❯`, and the cursor after it is where your typing appears. On the right side of the first line you see the time. If you see boxes or question marks instead of symbols, the MesloLGS NF font is missing; run the setup command again.
+4. **Look at the prompt.** The prompt is the area where you type, and it has two lines. The first line shows the folder you are in, on a gray background. The second line starts with a pink `❯`, and the cursor after it is where your typing appears. The right side of the first line shows information about the last command you ran, which the next steps explain. If you see boxes or question marks instead of symbols, the MesloLGS NF font is missing; run the setup command again.
 
-### Run commands and read the results
+### Run Commands and Read the Results
 
-5. **Check Homebrew.** Run `brew --version`. It prints a line starting with `Homebrew` and a version number. A blue `✔` appears on the right side of the prompt: it means the last command succeeded.
+5. **Check homebrew.** Run `brew --version`. It prints a line starting with `Homebrew` and a version number. A blue `✔` appears on the right side of the prompt: it means the last command succeeded.
 
 6. **Make a mistake on purpose.** Type `ecko hello`, but do not press Return yet. The word `ecko` is pale green, because it is not a real command; the terminal colors commands as you type so you can catch typos before running them. Now press Return. The terminal says `command not found`, and a pink `✘` appears on the right: it means the last command failed.
 
 7. **Fix the mistake.** Type `echo hello`. This time `echo` turns blue, because it is a real command. Press Return, and the terminal prints `hello` with a blue `✔`.
 
-### Let the terminal type for you
+### Let the Terminal Type for You
 
 8. **Accept a suggestion with the right arrow.** Type just `ec`. Gray text appears after your cursor, completing the line to `echo hello`: the terminal suggests commands you have run before. Press the **Right Arrow** key to accept the suggestion, then press Return to run it. If you do not want a suggestion, keep typing and it disappears.
 
@@ -90,7 +91,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 11. **Choose from a menu with Tab.** Type `cd ~/` and press **Tab** twice. A menu of the folders in your home folder appears. Use the arrow keys to highlight `DeveloperTools/`, press Return to choose it, and press Return again to move there. The prompt now shows `DeveloperTools` and, after it, `main` in blue: this folder is a git repository, `main` is its branch, and blue means nothing in it has changed.
 
-### Move between folders
+### Move Between Folders
 
 12. **Go home and come back.** Type `~` and press Return; you are in your home folder. Type `-` and press Return; you are back in `DeveloperTools`, because `-` returns to the folder you were just in.
 
@@ -143,7 +144,7 @@ These are the most common problems and their fixes:
 
 If none of these fixes the problem, take a screenshot of the Terminal window and show it to your teacher.
 
-## How the scripts work
+## How the Scripts Work
 
 The scripts are written to be read. If you are curious how a bash script works, open them in Visual Studio Code; every step has a comment explaining what it does.
 
@@ -162,74 +163,11 @@ The scripts, all in the `scripts/` folder:
 
 ---
 
-## For contributors
-
-This section is for people who maintain this repository. You will use [Claude Code](https://code.claude.com/docs/en/overview), Anthropic's artificial intelligence coding assistant, which reads this repository's `CLAUDE.md` file every time it starts.
-
-### Get access and a copy of the repository
-
-1. Ask the maintainer, Jeffrey Trevino, to give your GitHub account write access to `LWHSTechnicalArts/DeveloperTools`.
-2. Complete the student setup above on your own Mac, so you have Homebrew, the repository in `~/DeveloperTools`, and the linked settings files.
-   `bootstrap.sh` downloads the repository from the `main` branch on GitHub, so a change to `bootstrap.sh` reaches students only after it is pushed to `main`.
-3. Set up GitHub authentication for `git` on your Mac by following GitHub's guide to [connecting to GitHub with Secure Shell (SSH)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
-4. Point your copy of the repository at the Secure Shell (SSH) address so that `git push` uses that authentication:
-
-   ```bash
-   git -C ~/DeveloperTools remote set-url origin git@github.com:LWHSTechnicalArts/DeveloperTools.git
-   ```
-
-### Install and start Claude Code
-
-1. Install Claude Code with Homebrew ([Claude Code setup documentation](https://code.claude.com/docs/en/setup)):
-
-   ```bash
-   brew install --cask claude-code
-   ```
-
-2. Move into the repository and start Claude Code:
-
-   ```bash
-   cd ~/DeveloperTools
-   ```
-
-   ```bash
-   claude
-   ```
-
-3. The first time Claude Code starts, it asks you to sign in. Sign in with a Claude account that has a paid plan, or with an Anthropic Console account, as the setup documentation describes.
-
-Claude Code loads `CLAUDE.md` automatically when it starts in this folder ([Claude Code memory documentation](https://code.claude.com/docs/en/memory)). You do not need to point it at the file.
-
-### What CLAUDE.md contains
-
-`CLAUDE.md` is the project's shared memory for Claude Code. It records what each file is for, where the live copies are linked, the p5.js color palette, the decisions made so far and why, the open tasks, the code conventions, and how replies should be written. Read it once yourself before your first change; it is the fastest way to learn the project.
-
-Keep `CLAUDE.md` accurate. When a change makes something in it untrue, such as a new file, a finished open task, or a new decision, update `CLAUDE.md` in the same commit. You can ask Claude Code to do this for you.
-
-`CLAUDE.md` includes a section on how Claude should reply, written for the maintainer. To add your own preferences without changing the shared file, put them in a file named `CLAUDE.local.md` in the repository folder, which Claude Code also loads ([Claude Code memory documentation](https://code.claude.com/docs/en/memory)). Keep that file out of commits by adding its name to your local exclude list:
-
-```bash
-echo "CLAUDE.local.md" >> ~/DeveloperTools/.git/info/exclude
-```
-
-### Rules for changes
-
-These rules come from `CLAUDE.md`, and Claude Code follows them too:
-
-- **Your edits are live.** On a machine that ran the setup, `~/.zshrc`, `~/.p10k.zsh`, Visual Studio Code's `settings.json`, and the theme extension are links into this repository. Saving a file here changes your own setup immediately.
-- **Keep personal settings out of the repository.** Shell settings for your machine only go in `~/.zshrc.local`, which the shared `.zshrc` loads if it exists. Never commit passwords, tokens, or paths that contain your username.
-- **Keep the scripts readable for students.** Every new piece of bash syntax gets a comment that explains it. The scripts must run on the bash version built into macOS (3.2), so avoid associative arrays, `mapfile`, and `${variable,,}`.
-- **Keep the palette consistent.** A color changed in the terminal block, the prompt config, or the Visual Studio Code theme usually needs the same change in the other two.
-- **Check your work before committing.** Run `bash -n` on any bash script you changed, `zsh -n zsh/.zshrc` after changing the shell config, and `python3 -m json.tool` on any JavaScript Object Notation (JSON) file you changed.
-- **Write short commit messages.** Use short, lowercase, descriptive messages that match the existing history, for example `added extensions list to configure.sh`.
-
----
-
 ## Reference links
 
-### Agentic engineering with GitHub Copilot
+### Agentic Engineering with GitHub Copilot
 
-GitHub Copilot is built into Visual Studio Code. These guides explain how to work with it as an *agent*, an assistant that plans and makes changes across your project instead of only suggesting the next line.
+GitHub Copilot is built into Visual Studio Code. These guides explain how to work with it as an *agent*, an assistant that plans and makes changes across your project, directly in the files on your machine. Visual Studio Code allows for multiple agents to run [at the same time](https://code.visualstudio.com/blogs/2026/02/05/multi-agent-development).
 
 - [Access GitHub Copilot for free as a student](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students): how students qualify for free Copilot access through GitHub Education.
 - [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/setup/copilot): signing in to GitHub and turning Copilot on in Visual Studio Code.
