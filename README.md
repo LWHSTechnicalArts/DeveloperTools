@@ -112,6 +112,20 @@ This short tour checks that each part of the setup works and shows you the featu
 
 16. **Open a folder from the terminal.** While you are in `DeveloperTools`, run `code .` (the period means "this folder"). A new Visual Studio Code window opens with this folder's files in the sidebar. This is the quickest way to start working on any project: move to its folder in the terminal, then run `code .`.
 
+### Make a p5.js Sketch with Copilot
+
+This last part puts everything together: you create a p5.js project, preview it in your browser, and ask GitHub Copilot, the AI assistant built into Visual Studio Code, to draw a tiger.
+
+17. **Create a p5.js project.** In Visual Studio Code, press **Command-Shift-P** to open the Command Palette, type `Create p5.js Project`, and press Return. A window opens asking for a folder. Go to your **Documents** folder, click **New Folder**, name it `tiger`, click **Create**, and then click **Open**. A new Visual Studio Code window opens with your project's files in the sidebar: `index.html`, `sketch.js`, `style.css`, and a `libraries` folder.
+
+18. **Open the sketch with Live Server.** In the sidebar, right-click `index.html` and choose **Open with Live Server**. Your web browser opens a page at an address like `http://127.0.0.1:5500/index.html` and shows a gray square: that is the starter sketch. Arrange the browser and Visual Studio Code side by side so you can see both.
+
+19. **Sign in to Copilot (first time only).** Copilot needs a GitHub account. In Visual Studio Code, hover over the Copilot icon in the status bar at the bottom of the window, choose **Use AI Features**, and follow the prompts to sign in with GitHub. If you do not have a Copilot plan, signing in gives you the free plan. Students can also [get Copilot for free through GitHub Education](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
+
+20. **Ask Copilot for a tiger.** Click `sketch.js` in the sidebar to open it. Press **Command-I** to open a chat box inside the editor, type `Draw a picture of a tiger using p5.js shapes`, and press Return. Copilot shows its suggested changes right in the file, with new lines highlighted. Read them over, then click **Keep** to accept them, or **Undo** to throw them away.
+
+21. **Watch the browser update.** About a second after you click **Keep**, Visual Studio Code saves `sketch.js` automatically, and Live Server reloads the page, so the tiger appears in your browser without you touching it. (If it does not appear, press **Command-S** to save.) Copilot's drawing is different every time; try follow-up requests such as `Give the tiger bolder stripes` and watch the browser change after each one. If Copilot's code has a mistake, Error Lens shows the error message on the line, and you can ask Copilot to fix it.
+
 If a check fails, run the setup command from step 2 of the setup again, then repeat the tour. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
 
 ### Quick Reference
@@ -131,6 +145,7 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 | Create an empty file | `touch` *name* |
 | Delete a file (answer `y` to delete, `n` to keep) | `rm` *name* |
 | Open the current folder in Visual Studio Code | `code .` |
+| Ask Copilot to change the code in a file | **Command-I** in the editor |
 | Make the editor's text bigger or smaller | Hold **Command** and scroll |
 
 ## How Visual Studio Code Helps You Find Mistakes
