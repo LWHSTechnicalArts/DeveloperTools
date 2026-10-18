@@ -24,13 +24,14 @@ can replace its link with a regular file; check with `ls -la` (look for `->`).
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` | Jeffrey's own Visual Studio Code settings |
 | `vscode/p5js-editor-light/` | `~/.vscode/extensions/p5js-editor-light/` | Theme extension: `package.json` (publisher `local`, `uiTheme` `vs`, version 0.0.1) and `themes/p5js-editor-light-color-theme.json` |
 
-`setup.sh` recreates all four symlinks on any Mac (`bash setup.sh` from the repo
-folder). It moves anything already in the way into
-`~/DeveloperTools-backups/<date_time>/`, skips links that are already correct,
-and creates missing parent folders. It installs nothing. Its comments teach bash
-to students, so keep them accurate and in that teaching style when editing it.
-It must run on macOS's built-in bash 3.2: no associative arrays, `mapfile` or
-`${variable,,}`.
+Three scripts set up a Mac. Their comments teach bash to students, so keep
+them accurate and in that teaching style when editing. They must run on macOS's
+built-in bash 3.2: no associative arrays, `mapfile` or `${variable,,}`. Every
+step skips work that is already done, so each script is safe to rerun.
+
+- `setup.sh` is the one to run on a new Mac (`bash setup.sh` from the repo folder). It runs `install.sh`, then runs `configure.sh` only if `install.sh` exited with status 0; otherwise it prints an error and exits 1.
+- `install.sh` installs, in order: Homebrew (`sudo -v` caches the administrator password, then the official installer runs with `NONINTERACTIVE=1`, which makes it use `sudo -n`); the `brew shellenv` line appended to `~/.zprofile`; iTerm2 and Visual Studio Code with `brew install --cask` (skipped when the app is already in `/Applications`, since `brew` refuses to overwrite an app it did not install); the Homebrew formulae `zsh-autosuggestions` and `zsh-syntax-highlighting`; oh-my-zsh (`KEEP_ZSHRC=yes`, `--unattended`); `git clone --depth=1` of Powerlevel10k into `~/.oh-my-zsh/custom/themes/powerlevel10k` and of zsh-syntax-highlighting into `~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting`; and the four MesloLGS NF `.ttf` files from `romkatv/powerlevel10k-media` into `~/Library/Fonts`. zsh-syntax-highlighting comes from both Homebrew and git because `.zshrc` sources the git copy but points `ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR` at Homebrew's. iTerm2 preferences (font, colors, mark indicators) are not automated.
+- `configure.sh` recreates all four symlinks, moving anything in the way into `~/DeveloperTools-backups/<date_time>/` and creating missing parent folders. It then installs each extension in `vscode/extensions.txt` (one `publisher.name` per line; `#` comments and blank lines skipped) with `code --install-extension`, using `code` from the command path or from inside `/Applications/Visual Studio Code.app`. The list holds `samplavigne.p5-vscode` and `ritwickdey.LiveServer`; p5.vscode's extension pack already includes Live Server, and Live Server is not built into Visual Studio Code. GitHub Copilot is built in (`GitHub.copilot-chat`), so it is not in the list.
 
 Facts about these files that matter for distributing them to students:
 
@@ -68,9 +69,9 @@ Values come from the p5.js web editor's variables stylesheet (light theme).
 
 ## Open tasks
 
-1. Write `setup-vscode.sh` for the real layout: back up the student's settings file, copy in `vscode/settings.json`, and copy `vscode/p5js-editor-light/` into `~/.vscode/extensions`.
+1. Run `setup.sh` on a real second Mac. So far it has only run against stub commands.
 2. Decide how to handle machine-specific and extension-specific entries in the shared `settings.json` and `.zshrc`, especially the Python interpreter path and the `/Users/jtrevino` paths.
-3. Build the main setup script: install Powerlevel10k, download MesloLGS NF, copy the prompt config to `~/.p10k.zsh`, install zsh-autosuggestions and zsh-syntax-highlighting, append the color block after the `~/.p10k.zsh` source line, and call `setup-vscode.sh`.
+3. Automate iTerm2's font and colors (custom preferences folder or Dynamic Profiles), or decide not to.
 4. Test three prompt details never run in zsh: the gap between the left and right parts of the top line, the closing arrow after the version-control segment, and the prompt character's `#fbfbfb` background, which may show as a light box on the Visual Studio Code terminal's `#f0f0f0` panel.
 5. Test palette output with `brew install --dry-run ffmpeg`. An empty `brew upgrade --dry-run` means nothing is outdated.
 6. Baseline test: set the iTerm2 profile to Solarized Dark and confirm a new window still opens light, then set it to the built-in "Light Background" preset.

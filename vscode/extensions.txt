@@ -1,0 +1,14 @@
+# Visual Studio Code extensions that configure.sh installs, one identifier per line.
+# An identifier has the form publisher.name. To find one, open the extension's
+# page in Visual Studio Code and look under its name, or run
+#     code --list-extensions
+# on a machine that already has it. Lines starting with "#" and blank lines
+# are skipped.
+
+# p5.vscode: p5.js project templates, autocomplete, and reference links.
+samplavigne.p5-vscode
+
+# Live Server: serves a project folder to the browser and reloads on save.
+# p5.vscode already includes it in its extension pack; it is listed here too
+# so the list shows everything that gets installed.
+ritwickdey.LiveServer
