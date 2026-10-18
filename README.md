@@ -1,18 +1,17 @@
 # DeveloperTools
 
-In about 30 minutes, the script in this repository with automatically set up your Mac for Tech Arts code & design projects. One script installs the tools we use for agentic engineering. For a more unified and inviting learning experience, it also matches the visual style of Visual Studio Code, iTerm2, and your terminal prompt to to the light color scheme of the [p5.js web editor](https://editor.p5js.org).
+In about 30 minutes, the script in this repository will automatically set up your Mac for Tech Arts code & design projects. It installs the tools we use for agentic engineering. And for a more unified and inviting learning experience, it also matches the visual style of Visual Studio Code and your terminal prompt to the light color scheme of the [p5.js web editor](https://editor.p5js.org).
 
 ## What the setup does
 
 The setup script installs these programs and settings for you:
 
 - **Homebrew**, a tool that installs other programs from the command line.
-- **iTerm2**, the terminal app we use.
 - **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme and the p5.vscode and Live Server extensions.
 - **oh-my-zsh** and **Powerlevel10k**, which give your terminal a colored, informative prompt.
 - **zsh-autosuggestions** and **zsh-syntax-highlighting**, which suggest and color commands as you type.
 - **MesloLGS NF**, a font with the symbols the prompt draws.
-- **Inconsolata**, a different font for the code you edit in Visual Studio Code, so you can always tell your code apart from the terminal.
+- **Inconsolata**, the same free and open font used in the p5.js editor.
 
 The script does not delete anything. If your Mac already has one of the settings files it replaces, the script moves your old file into a folder named `DeveloperTools-backups` in your home folder.
 
@@ -20,16 +19,16 @@ The script does not delete anything. If your Mac already has one of the settings
 
 You need three things before you begin:
 
-- A Mac connected to the internet.
-- The password you use to log in to your Mac. Your account must be an administrator account. If the script says you are not an administrator, you need to logout and log in as the admin user.
-- About 30 minutes. Most of that time is waiting while things download.
+- **A Mac connected to the internet.** 
+- **The password you use to log in to your Mac.** Your account must be an administrator account. If the script says you are not an administrator, you need to logout and log in as the admin user.
+- **About 30 minutes.** Most of that time is waiting while things download.
 
 ## Terminal basics
 
 Terminal is an app where you control your Mac by typing commands instead of pointing and clicking. You will only need a few skills for this setup:
 
 - **Running a command:** Copy a command from this page, click in the Terminal window, paste it with **Command-V**, and press **Return**. Terminal runs one command each time you press Return.
-- **Waiting:** While a command runs, text scrolls by.
+- **Waiting:** While a command runs, lots of text scrolls by. It will be a ton, and it's not important that you read or understand all of it. (But feel free to investigate!)
 - **Typing your password:** When Terminal asks for your password, nothing appears on screen as you type, not even dots. This is normal. Type your password and press Return.
 - **Stopping a command:** If something goes wrong and you need to stop a command, press **Control-C**.
 
@@ -45,19 +44,13 @@ Follow these steps in order.
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
    ```
 
-   This command downloads a script named `bootstrap.sh` from this repository and runs it. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
+   A *bash script* is a sequence of terminal commands in a file that the computer can run one by one. Bash is a new programming language that uses the same fundamentals we've seen: variables, conditional statements, and for loops. This command downloads a script named `bootstrap.sh` from this repository and runs it. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
 
 3. **Type your password when asked.** Type your Mac login password and press **Return**. The script may ask more than once, because some steps take longer than macOS remembers your password.
 
 4. **Wait for the script to finish.** This takes about 30 minutes. The script prints a heading for each step, such as `==> Homebrew`. If a window opens asking to install the Command Line Tools, click **Install**, click **Agree**, wait for the installation to finish, and then press **Return** in Terminal. The script is finished when it prints `Done.` and shows the prompt again.
 
-5. **Quit Terminal.** Press **Command-Q**. From now on, use iTerm2 instead of Terminal; the colors only work in iTerm2 and in Visual Studio Code.
-
-6. **Open iTerm2.** Open your **Applications** folder and double-click **iTerm**. If macOS asks whether you are sure you want to open it, click **Open**. The window should have a light background and a colored prompt.
-
-7. **Set iTerm2's font.** The prompt's symbols need the MesloLGS NF font, and this is the one setting the script cannot change for you. With iTerm2 open, press **Command-comma** to open its settings window, click **Profiles**, click the **Text** tab, click the font name under **Font**, and choose **MesloLGS NF**. Close the settings window.
-
-8. **Open Visual Studio Code.** Open your **Applications** folder and double-click **Visual Studio Code**. If macOS asks whether you are sure you want to open it, click **Open**. The editor should already use the p5.js Editor Light theme.
+5. **Quit Terminal.** Press **Command-Q**. From now on, use the terminal built into Visual Studio Code, which has the matching colors and font. The tour below shows you how to open it.
 
 Your Mac is set up.
 
@@ -67,15 +60,13 @@ This short tour checks that each part of the setup works and shows you the featu
 
 ### Check Visual Studio Code
 
-1. **Open Visual Studio Code.** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. The editor uses the light p5.js Editor Light theme.
+1. **Open Visual Studio Code.** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. If macOS asks whether you are sure you want to open it, click **Open**. The editor uses the light p5.js Editor Light theme.
 
 2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode** and **Live Server** are in the list of installed extensions.
 
 ### Open the terminal inside Visual Studio Code
 
-3. **Open the terminal.** Press **Control-`** (the backtick key, above Tab), or choose **Terminal > New Terminal** from the menu bar. A terminal panel opens at the bottom of the window. It is the same terminal as the Terminal and iTerm2 apps, built into the editor so you can run commands next to your code. Click inside the panel to type in it. Press **Control-`** again whenever you want to hide or show it.
-
-   Notice that the text in the terminal looks different from the text in the editor above it. The editor, where you write code in files, uses the Inconsolata font; the terminal, where you type commands, uses MesloLGS NF. When you are not sure where you are typing, look at the font.
+3. **Open the terminal.** Press **Control-\`** (the backtick key, above Tab), or choose **Terminal > New Terminal** from the menu bar. A terminal panel opens at the bottom of the window. It works like the Terminal app, but it is built into the editor so you can run commands next to your code. Click inside the panel to type in it. Press **Control-`** again whenever you want to hide or show it.
 
 ### Read your prompt
 
@@ -93,7 +84,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 8. **Accept a suggestion with the right arrow.** Type just `ec`. Gray text appears after your cursor, completing the line to `echo hello`: the terminal suggests commands you have run before. Press the **Right Arrow** key to accept the suggestion, then press Return to run it. If you do not want a suggestion, keep typing and it disappears.
 
-9. **Search your history with the up arrow.** Type `br` and press the **Up Arrow** key. The terminal fills in `brew --version`, the last command you ran that starts with `br`. Press Up again to go further back, or Down to come forward. Press Return to run it again, or press **Control-C** to cancel.
+9. **Search your history with the up arrow.** Type `br` and press the **Up Arrow** key. The terminal fills in `brew --version`, the last command you ran that starts with `br`. Press the Up arrow again to go further back in time, or the Down arrow to move forward in time. Press Return to run it again, or press **Control-C** to cancel.
 
 10. **Complete names with Tab.** Type `cd ~/Doc` and press **Tab**. The terminal completes the folder name to `cd ~/Documents/`, so you never have to type a long name in full. Press Return to move into your Documents folder; the prompt now shows `Documents`.
 
@@ -101,23 +92,19 @@ This short tour checks that each part of the setup works and shows you the featu
 
 ### Move between folders
 
-12. **Go home and come back.** Type `~` and press Return; you are in your home folder, because typing a folder name by itself moves you there. Type `-` and press Return; you are back in `DeveloperTools`, because `-` returns to the folder you were just in.
+12. **Go home and come back.** Type `~` and press Return; you are in your home folder. Type `-` and press Return; you are back in `DeveloperTools`, because `-` returns to the folder you were just in.
 
 13. **Check the folder colors.** Run `ls`. Folder names appear in blue, so you can tell them apart from files.
 
-14. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/zsh/.zshrc`. That arrow is the link the setup created.
+14. **Check the settings links.** Run `ls -l ~/.zshrc`. The line ends with an arrow pointing into your `DeveloperTools` folder, such as `-> /Users/yourname/DeveloperTools/zsh/.zshrc`. That arrow is the link the setup created: a file on your computer, `.zshrc`, is really pointer back to a file in the cloned repository.
 
-### Connect the terminal and the editor
+### Open Projects in the Editor from your Terminal
 
 15. **Open a folder from the terminal.** While you are in `DeveloperTools`, run `code .` (the period means "this folder"). A new Visual Studio Code window opens with this folder's files in the sidebar. This is the quickest way to start working on any project: move to its folder in the terminal, then run `code .`.
 
-### Check iTerm2
-
-16. **Try the same features in iTerm2.** Open iTerm2 from your **Applications** folder. It shows the same two-line prompt on a light background, and every feature from this tour works there too. If its prompt shows boxes or question marks, iTerm2's font is not set; repeat step 7 of the setup.
-
 If a check fails, run the setup command from step 2 of the setup again, then repeat the tour. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
 
-### Quick reference
+### Quick Reference
 
 | To do this | Press or type |
 |---|---|
@@ -133,17 +120,17 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 | Go back to the previous folder | `-` |
 | Open the current folder in Visual Studio Code | `code .` |
 
-## A note on running commands from the internet
+## A Note on Running Commands from the Internet
 
-The setup command runs a script straight from the internet, without showing it to you first. Homebrew's own installer works the same way. Only run commands like this when you trust where they come from: here, that is this repository, which your teacher maintains. You can read [bootstrap.sh](scripts/bootstrap.sh) before you run it.
+The setup command runs a script straight from the internet, without showing it to you first. Homebrew's own installer works the same way. Only run commands like this when you trust where they come from: here, that is this repository, which your teacher maintains. You can read [bootstrap.sh](scripts/bootstrap.sh) before you run it; all the Bash scripts have been documented in detail, in case you want to learn more about the Bash scripting language.
 
-## Keep the folder where it is
+## Keep the Folder Where it is
 
 Keep the `DeveloperTools` folder in your home folder, and do not rename or delete it. Your settings files are *linked* to the files in this folder, the way a shortcut points to a file somewhere else. If the folder moves, the links break, and your terminal and editor lose their settings.
 
-## If something goes wrong
+## If Something Goes Wrong
 
-Running the setup command again is always safe. The scripts skip anything that is already installed, update your copy of this repository, and finish the rest. To run it again, open iTerm2 (or Terminal, if iTerm2 is not installed yet), paste the same command from step 2, and press **Return**.
+Running the setup command again is always safe. The scripts skip anything that is already installed, update your copy of this repository, and finish the rest. To run it again, open Terminal, paste the same command from step 2, and press **Return**.
 
 These are the most common problems and their fixes:
 
@@ -151,7 +138,7 @@ These are the most common problems and their fixes:
 - **`The Command Line Tools are still not installed`**: The Command Line Tools installation did not finish. Run the setup command again. If you see this message a second time, ask your teacher for help.
 - **`install.sh did not finish, so configure.sh was not run`**: One of the installs failed, often because the internet connection dropped. Read the lines above that message for the reason, then run the setup command again.
 - **`Could not update; continuing with the copy already on this Mac`**: Your copy of this repository has changes made on your Mac, so the script kept your copy instead of updating it. Setup still finishes. Show the message to your teacher if you want the newest version.
-- **The prompt shows boxes or question marks instead of symbols**: iTerm2's font is not set. Repeat step 7.
+- **The prompt shows boxes or question marks instead of symbols**: In Visual Studio Code's terminal, this means the MesloLGS NF font is missing; run the setup command again. The macOS Terminal app shows boxes because its font is not MesloLGS NF; use Visual Studio Code's terminal instead.
 - **You need your old settings back**: Your previous files are in the `DeveloperTools-backups` folder in your home folder, in a subfolder named with the date and time the script ran. Ask your teacher before restoring one, because restoring removes the link to this repository.
 
 If none of these fixes the problem, take a screenshot of the Terminal window and show it to your teacher.
@@ -265,12 +252,11 @@ GitHub Copilot is built into Visual Studio Code. These guides explain how to wor
 - **Apple Command Line Tools**: [Installing the command-line tools](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools)
 - **git**: [Git documentation](https://git-scm.com/docs)
 - **Homebrew**: [Homebrew Documentation](https://docs.brew.sh)
-- **iTerm2**: [iTerm2 Documentation](https://iterm2.com/documentation.html) and [Homebrew's iterm2 package](https://formulae.brew.sh/cask/iterm2)
 - **Visual Studio Code**: [Visual Studio Code documentation](https://code.visualstudio.com/docs), [the `code` command line](https://code.visualstudio.com/docs/configure/command-line), [color themes](https://code.visualstudio.com/docs/configure/themes), and [Homebrew's visual-studio-code package](https://formulae.brew.sh/cask/visual-studio-code)
 - **p5.vscode** extension: [p5.vscode on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode)
 - **Live Server** extension: [Live Server on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - **p5.js**, the library the p5.vscode extension supports: [p5.js reference](https://p5js.org/reference/)
-- **zsh**, the shell in Terminal and iTerm2: [Use zsh as the default shell on your Mac](https://support.apple.com/en-us/102360) and [zsh documentation](https://zsh.sourceforge.io/Doc/)
+- **zsh**, the shell in Terminal and in Visual Studio Code's terminal: [Use zsh as the default shell on your Mac](https://support.apple.com/en-us/102360) and [zsh documentation](https://zsh.sourceforge.io/Doc/)
 - **oh-my-zsh**: [oh-my-zsh wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)
 - **Powerlevel10k**: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - **MesloLGS NF** font: [Powerlevel10k font guide](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
