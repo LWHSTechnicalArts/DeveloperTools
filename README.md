@@ -51,9 +51,17 @@ This command downloads a script named `bootstrap.sh` from this repository and ru
 
 3. **Type your password when asked.** Type your Mac login password and press **Return**. The script may ask more than once, because some steps take longer than macOS remembers your password.
 
-4. **Wait for the script to finish.** This takes about 30 minutes. The script prints a heading for each step, such as `==> Homebrew`. If a window opens asking to install the Command Line Tools, click **Install**, click **Agree**, wait for the installation to finish, and then press **Return** in Terminal. The script is finished when it prints `Done.` and shows the prompt again.
+4. **Accept the Xcode license, if asked.** Some Macs have Apple's Xcode app installed. If yours does and its license has not been accepted yet, the script stops and prints `Before the setup can continue, you need to accept Apple's Xcode license.` Then:
 
-5. **Quit Terminal.** Press **Command-Q**. From now on, use the terminal built into Visual Studio Code, which has the matching colors and font. The tour below shows you how to open it.
+   1. Type your Mac password if asked, and press **Return**.
+   2. When the license text appears, press the **space bar** until you reach the end.
+   3. Type `agree` and press **Return**.
+
+   The script then continues on its own. If your Mac does not ask, skip this step.
+
+5. **Wait for the script to finish.** This takes about 30 minutes. The script prints a heading for each step, such as `==> Homebrew`. If a window opens asking to install the Command Line Tools, click **Install**, click **Agree**, wait for the installation to finish, and then press **Return** in Terminal. The script is finished when it prints `Done.` and shows the prompt again.
+
+6. **Quit Terminal.** Press **Command-Q**. From now on, use the terminal built into Visual Studio Code, which has the matching colors and font. The tour below shows you how to open it.
 
 Your Mac is set up.
 
@@ -209,6 +217,8 @@ These are the most common problems and their fixes:
 
 - **`...DeveloperTools already exists but is not a copy of this repository`**: Your home folder already has a folder named `DeveloperTools` that did not come from this repository. Rename that folder in Finder, then run the setup command again.
 - **`The Command Line Tools are still not installed`**: The Command Line Tools installation did not finish. Run the setup command again. If you see this message a second time, ask your teacher for help.
+- **`Before the setup can continue, you need to accept Apple's Xcode license`**: Your Mac has Apple's Xcode app installed, and its license has not been accepted yet. Follow step 4 of the setup: press the space bar until you reach the end of the license, type `agree`, and press Return; the setup then continues on its own.
+- **`bootstrap.sh stopped because the command on line ... failed`**: One step of the setup failed, often because the internet connection dropped. Read the lines above that message for the reason, then paste the setup command again.
 - **`install.sh did not finish, so configure.sh was not run`**: One of the installs failed, often because the internet connection dropped. Read the lines above that message for the reason, then run the setup command again.
 - **`Could not update; continuing with the copy already on this Mac`**: Your copy of this repository has changes made on your Mac, so the script kept your copy instead of updating it. Setup still finishes. Show the message to your teacher if you want the newest version.
 - **The prompt shows boxes or question marks instead of symbols**: In Visual Studio Code's terminal, this means the MesloLGS NF font is missing; run the setup command again. The macOS Terminal app shows boxes because its font is not MesloLGS NF; use Visual Studio Code's terminal instead.

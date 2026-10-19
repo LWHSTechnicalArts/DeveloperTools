@@ -16,7 +16,7 @@
 #
 # The script does three things:
 #   1. Installs Apple's Command Line Tools, which include git, if they are
-#      missing.
+#      missing, and asks you to accept the Xcode license if git needs that.
 #   2. Downloads this repository into ~/DeveloperTools with git, or updates
 #      it if it is already there.
 #   3. Runs setup.sh, which installs the programs and links the settings.
@@ -26,7 +26,13 @@
 
 
 # Stop on any failure, on unset variables, and on failures inside pipelines.
-set -euo pipefail
+#   -E  lets the "trap" below also notice failures inside functions
+set -Eeuo pipefail
+
+# "trap COMMANDS ERR" runs COMMANDS whenever a command fails, just before
+# "set -e" stops the script. Without it, the script would stop silently.
+# $LINENO is the line number of the command that failed.
+trap 'echo "bootstrap.sh stopped because the command on line $LINENO failed. Read the messages above, then paste the setup command again. If it stops again, ask your teacher for help." >&2' ERR
 
 
 # --- Settings ---------------------------------------------------------------
@@ -108,6 +114,36 @@ else
         echo "The Command Line Tools are still not installed. Ask your teacher for help." >&2
         exit 1
     fi
+fi
+
+
+# --- Xcode license ----------------------------------------------------------
+# On a Mac with the full Xcode app installed, Apple's tools, git included,
+# refuse to run until the Xcode license has been accepted. If git meets the
+# license first, it shows the license itself, but then quits without doing
+# its job, which used to end this script early. So the script checks first.
+#
+# xcode-select -p prints which developer tools are in use. The pattern
+# *"/Xcode"*".app/"* matches paths inside an Xcode app, such as
+# /Applications/Xcode.app/Contents/Developer.
+# "xcodebuild -license check" succeeds only if the license is accepted, and
+# never stops to ask anything.
+developer_directory="$(xcode-select -p)"
+if [[ "$developer_directory" == *"/Xcode"*".app/"* ]] && ! xcodebuild -license check &> /dev/null; then
+    echo "Before the setup can continue, you need to accept Apple's Xcode license."
+    echo "Type your Mac password if asked. When the license appears, press the"
+    echo "space bar until you reach the end, then type agree and press Return."
+    # xcodebuild -license shows the license and records your answer. It needs
+    # administrator rights, so it runs with sudo. When you agree, it finishes
+    # successfully and the script carries on with the next step.
+    sudo xcodebuild -license
+fi
+
+# Make sure git really works now. "< /dev/null" gives git no keyboard input,
+# so it can never stop to ask a question here.
+if ! git --version < /dev/null &> /dev/null; then
+    echo "git cannot run yet. Ask your teacher for help." >&2
+    exit 1
 fi
 
 
