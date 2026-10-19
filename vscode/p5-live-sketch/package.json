@@ -1,0 +1,30 @@
+{
+  "name": "p5-live-sketch",
+  "displayName": "p5.js Live Sketch",
+  "description": "When a p5.js project opens, starts Live Server and shows the sketch in VS Code's integrated browser beside the code.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": { "vscode": "^1.110.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": ["workspaceContains:sketch.js"],
+  "extensionDependencies": ["ritwickdey.LiveServer"],
+  "contributes": {
+    "configuration": {
+      "title": "p5.js Live Sketch",
+      "properties": {
+        "p5LiveSketch.openOnStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Start Live Server and show the sketch beside the code when a folder containing sketch.js opens."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "p5LiveSketch.open",
+        "title": "p5.js Live Sketch: Show Sketch Beside Code"
+      }
+    ]
+  }
+}

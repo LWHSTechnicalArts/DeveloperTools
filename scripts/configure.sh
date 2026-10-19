@@ -151,12 +151,14 @@ source_paths=(
     "$repository_directory/zsh/p5js-editor-light.p10k.zsh"
     "$repository_directory/vscode/settings.json"
     "$repository_directory/vscode/p5js-editor-light"
+    "$repository_directory/vscode/p5-live-sketch"
 )
 target_paths=(
     "$HOME/.zshrc"
     "$HOME/.p10k.zsh"
     "$HOME/Library/Application Support/Code/User/settings.json"
     "$HOME/.vscode/extensions/p5js-editor-light"
+    "$HOME/.vscode/extensions/p5-live-sketch"
 )
 
 # The list of Visual Studio Code extensions to install, one per line.
@@ -166,7 +168,7 @@ extensions_file="$repository_directory/vscode/extensions.txt"
 # --- Main work --------------------------------------------------------------
 echo "Linking configuration files from $repository_directory"
 
-# "${#source_paths[@]}" is the number of items in the array (here, 4).
+# "${#source_paths[@]}" is the number of items in the array (here, 5).
 file_count="${#source_paths[@]}"
 
 # This "for" loop counts index from 0 up to, but not including, file_count.
