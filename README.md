@@ -45,9 +45,9 @@ Follow these steps in order.
 2. **Run the setup command.** Copy this whole line (cmd+C or press the two overlapping squares on the right edge of the code snippet), paste it into Terminal (cmd+V), and press **Return**:
 
    ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
+   caffeinate -dis /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
    ```
-This command downloads a script named `bootstrap.sh` from this repository and runs it. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
+This command downloads a script named `bootstrap.sh` from this repository and runs it. The word `caffeinate` at the start keeps your Mac awake until the script finishes, so it does not go to sleep partway through the half-hour setup: `-d` keeps the screen on, `-i` stops the Mac from sleeping when you are not using it, and `-s` stops it from sleeping while it is plugged in. Keep your Mac open and plugged in while the setup runs. The script installs Apple's Command Line Tools if your Mac does not have them, downloads this repository into a folder named `DeveloperTools` in your home folder, and then runs `setup.sh` to install and set up everything else.
 
 3. **Type your password when asked.** Type your Mac login password and press **Return**. The script may ask more than once, because some steps take longer than macOS remembers your password.
 
