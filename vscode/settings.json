@@ -25,5 +25,6 @@
     "editor.inlineSuggest.enabled": false,
     "github.copilot.editor.enableAutoCompletions": false,
     "claudeCode.preferredLocation": "panel",
-    "workbench.colorTheme": "p5.js Editor Light"
+    "workbench.colorTheme": "p5.js Editor Light",
+    "liveServer.settings.donotShowInfoMsg": true
 }
