@@ -200,6 +200,16 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
   unset paletteColors colorName colorValue
 fi
 
+# Visual Studio Code's "code" command (as in "code ."). Installing Visual
+# Studio Code with Homebrew puts "code" on the command path, but a copy
+# installed by hand does not, so add the folder inside the app, as Visual
+# Studio Code's macOS setup guide describes.
+visual_studio_code_bin="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+if ! command -v code > /dev/null && [[ -d "$visual_studio_code_bin" ]]; then
+  export PATH="$PATH:$visual_studio_code_bin"
+fi
+unset visual_studio_code_bin
+
 # Safer, clearer file commands for beginners.
 # rm asks before deleting each file, because files removed with rm skip the
 # Trash. macOS's rm prints its own question ("remove FILE?") and cannot change
