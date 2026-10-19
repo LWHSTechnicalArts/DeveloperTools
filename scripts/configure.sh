@@ -123,6 +123,78 @@ get_code_command() {
     fi
 }
 
+# get_package_field prints one field from an extension's package.json file.
+# plutil is a macOS tool for settings files; it can read JSON files too.
+#   -extract FIELD raw  print just that field's value
+#   -o -                print to the screen instead of saving a file
+#   $1 = the package.json file
+#   $2 = the field, such as "name" or "engines.vscode"
+get_package_field() {
+    plutil -extract "$2" raw -o - "$1"
+}
+
+# package_extension turns one extension folder into a .vsix file, the
+# package format Visual Studio Code installs extensions from. A .vsix file is
+# a zip file holding the extension in a folder named "extension", plus two
+# small description files that Visual Studio Code reads first.
+#   $1 = the extension folder in this repository
+#   $2 = the .vsix file to create
+package_extension() {
+    local extension_folder="$1"
+    local vsix_path="$2"
+    local package_file="$extension_folder/package.json"
+    local publisher name version display_name engine
+    publisher="$(get_package_field "$package_file" publisher)"
+    name="$(get_package_field "$package_file" name)"
+    version="$(get_package_field "$package_file" version)"
+    display_name="$(get_package_field "$package_file" displayName)"
+    engine="$(get_package_field "$package_file" engines.vscode)"
+
+    # mktemp -d makes a new, empty folder with a unique name for building in.
+    local staging_directory
+    staging_directory="$(mktemp -d)"
+    mkdir -p "$staging_directory/extension"
+    # cp -R copies a folder and everything inside it. "FOLDER/." means "the
+    # contents of FOLDER," so the files land directly in "extension".
+    cp -R "$extension_folder/." "$staging_directory/extension/"
+
+    # The manifest tells Visual Studio Code what the package is. In this here
+    # document END is not in quotes, so bash fills in the $variables.
+    cat > "$staging_directory/extension.vsixmanifest" <<END
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="$name" Version="$version" Publisher="$publisher" />
+    <DisplayName>$display_name</DisplayName>
+    <Description xml:space="preserve">$display_name</Description>
+    <Categories>Other</Categories>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="$engine" />
+    </Properties>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code" />
+  </Installation>
+  <Dependencies />
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+  </Assets>
+</PackageManifest>
+END
+
+    # This file lists the kinds of files inside the package.
+    cat > "$staging_directory/[Content_Types].xml" <<'END'
+<?xml version="1.0" encoding="utf-8"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension=".json" ContentType="application/json" /><Default Extension=".js" ContentType="application/javascript" /><Default Extension=".vsixmanifest" ContentType="text/xml" /></Types>
+END
+
+    # zip -r packs a folder and everything in it into one file; -q keeps it
+    # quiet. The cd happens inside ( ), so it does not move the rest of the
+    # script. Then the build folder is removed.
+    (cd "$staging_directory" && zip -q -r "$vsix_path" .)
+    rm -rf "$staging_directory"
+}
+
 
 # --- Settings ---------------------------------------------------------------
 # A variable stores a value. You assign it with NAME=value (no spaces around
@@ -150,25 +222,29 @@ source_paths=(
     "$repository_directory/zsh/.zshrc"
     "$repository_directory/zsh/p5js-editor-light.p10k.zsh"
     "$repository_directory/vscode/settings.json"
-    "$repository_directory/vscode/p5js-editor-light"
-    "$repository_directory/vscode/p5-live-sketch"
 )
 target_paths=(
     "$HOME/.zshrc"
     "$HOME/.p10k.zsh"
     "$HOME/Library/Application Support/Code/User/settings.json"
-    "$HOME/.vscode/extensions/p5js-editor-light"
-    "$HOME/.vscode/extensions/p5-live-sketch"
 )
 
 # The list of Visual Studio Code extensions to install, one per line.
 extensions_file="$repository_directory/vscode/extensions.txt"
 
+# This repository's own Visual Studio Code extensions: the color theme and the
+# helper that shows a p5.js sketch beside its code. They are not on the
+# Visual Studio Code Marketplace, so this script packages and installs them.
+local_extension_folders=(
+    "$repository_directory/vscode/p5js-editor-light"
+    "$repository_directory/vscode/p5-live-sketch"
+)
+
 
 # --- Main work --------------------------------------------------------------
 echo "Linking configuration files from $repository_directory"
 
-# "${#source_paths[@]}" is the number of items in the array (here, 5).
+# "${#source_paths[@]}" is the number of items in the array (here, 3).
 file_count="${#source_paths[@]}"
 
 # This "for" loop counts index from 0 up to, but not including, file_count.
@@ -179,12 +255,6 @@ file_count="${#source_paths[@]}"
 for (( index = 0; index < file_count; index++ )); do
     link_configuration_file "${source_paths[index]}" "${target_paths[index]}"
 done
-
-# Report where the backups went, but only if the script made any.
-#   -gt  means "greater than" when comparing numbers inside [ ... ]
-if [ "$backup_count" -gt 0 ]; then
-    echo "Backed up $backup_count file(s) to $backup_directory"
-fi
 
 
 # --- Visual Studio Code extensions ------------------------------------------
@@ -225,6 +295,32 @@ else
         # (for example, with no internet), "set -e" stops the script here.
         "$code_command" --install-extension "${extension_ids[index]}"
     done
+
+    echo "Installing this repository's own Visual Studio Code extensions"
+    build_directory="$(mktemp -d)"
+    local_extension_count="${#local_extension_folders[@]}"
+    for (( index = 0; index < local_extension_count; index++ )); do
+        extension_folder="${local_extension_folders[index]}"
+        folder_name="$(basename "$extension_folder")"
+
+        # Older versions of this script linked these folders straight into
+        # ~/.vscode/extensions, which Visual Studio Code does not always
+        # notice. Move any such old link into the backup folder first.
+        old_link_path="$HOME/.vscode/extensions/$folder_name"
+        if [ -L "$old_link_path" ]; then
+            mkdir -p "$backup_directory"
+            mv "$old_link_path" "$backup_directory/$folder_name"
+            echo "Backed up:      $old_link_path -> $backup_directory/$folder_name"
+            backup_count=$(( backup_count + 1 ))
+        fi
+
+        vsix_path="$build_directory/$folder_name.vsix"
+        package_extension "$extension_folder" "$vsix_path"
+        # --force reinstalls even when this version is already installed, so
+        # changes made in this repository reach Visual Studio Code.
+        "$code_command" --install-extension "$vsix_path" --force
+    done
+    rm -rf "$build_directory"
 fi
 
 # --- Fix p5.vscode's TypeScript settings ------------------------------------
@@ -275,5 +371,11 @@ for p5types_settings_path in "$HOME"/.vscode/extensions/samplavigne.p5-vscode-*/
 END
     echo "Fixed: $p5types_settings_path"
 done
+
+# Report where the backups went, but only if the script made any.
+#   -gt  means "greater than" when comparing numbers inside [ ... ]
+if [ "$backup_count" -gt 0 ]; then
+    echo "Backed up $backup_count file(s) to $backup_directory"
+fi
 
 echo "Done. Open a new terminal window and restart Visual Studio Code to see the changes."
