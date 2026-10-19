@@ -116,11 +116,11 @@ This short tour checks that each part of the setup works and shows you the featu
 
 ### Make a p5.js Sketch with Copilot
 
-This last part puts everything together: you create a p5.js project, preview it in your browser, and ask GitHub Copilot, the AI assistant built into Visual Studio Code, to draw a tiger.
+This last part puts everything together: you create a p5.js project, preview it with Live Server, and ask GitHub Copilot, the AI assistant built into Visual Studio Code, to draw a tiger. You will try two ways to watch your sketch: in your web browser, and inside Visual Studio Code.
 
 17. **Create a p5.js project.** In Visual Studio Code, press **Command-Shift-P** to open the Command Palette, type `Create p5.js Project`, and press Return. A window opens asking for a folder. Go to your **Documents** folder, click **New Folder**, name it `tiger`, click **Create**, and then click **Open**. A new Visual Studio Code window opens with your project's files in the sidebar: `index.html`, `sketch.js`, `style.css`, and a `libraries` folder.
 
-18. **Open the sketch with Live Server.** In the sidebar, right-click `index.html` and choose **Open with Live Server**. Your web browser opens a page at an address like `http://127.0.0.1:5500/index.html` and shows a gray square: that is the starter sketch. Arrange the browser and Visual Studio Code side by side so you can see both.
+18. **Start Live Server with Go Live.** Click **Go Live** in the status bar at the bottom-right of the Visual Studio Code window. Your web browser opens a page at an address like `http://127.0.0.1:5500/index.html` and shows a gray square: that is the starter sketch. While Live Server is running, the button shows its port instead, such as **Port : 5500**; clicking it again stops Live Server.
 
 19. **Sign in to Copilot (first time only).** Copilot needs a GitHub account. In Visual Studio Code, hover over the Copilot icon in the status bar at the bottom of the window, choose **Use AI Features**, and follow the prompts to sign in with GitHub. If you do not have a Copilot plan, signing in gives you the free plan. Students can also [get Copilot for free through GitHub Education](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
 
@@ -131,7 +131,20 @@ This last part puts everything together: you create a p5.js project, preview it 
     - **Command-I** opens a small chat box *over the code in the editor*, right where your cursor is. Use it for quick changes to the file you are looking at, like this tiger.
     - **Control-Command-I** opens the **Chat view**, a panel in a *sidebar* next to the editor. Use it for longer conversations: asking questions, getting explanations, or asking for changes across several files. The conversation stays in the panel while you work.
 
-21. **Watch the browser update.** About a second after you click **Keep**, Visual Studio Code saves `sketch.js` automatically, and Live Server reloads the page, so the tiger appears in your browser without you touching it. (If it does not appear, press **Command-S** to save.) Copilot's drawing is different every time; try follow-up requests such as `Give the tiger bolder stripes` and watch the browser change after each one. If Copilot's code has a mistake, Error Lens shows the error message on the line, and you can ask Copilot to fix it.
+21. **Watch the browser update (way 1: two windows).** Switch to your browser window; press **Command-Tab** to move between Visual Studio Code and the browser. About a second after you click **Keep**, Visual Studio Code saves `sketch.js` automatically, and Live Server reloads the page, so the tiger appears in your browser without you touching it. (If it does not appear, press **Command-S** to save.) Copilot's drawing is different every time; try follow-up requests such as `Give the tiger bolder stripes`, then switch to the browser to see each change. If Copilot's code has a mistake, Error Lens shows the error message on the line, and you can ask Copilot to fix it.
+
+22. **Watch the sketch inside Visual Studio Code (way 2: one window).** Instead of switching between two windows, you can show your sketch right next to your code:
+
+    1. In the browser window Live Server opened, click the address bar and copy the address with **Command-C**.
+    2. Close that browser window. Live Server keeps running; the status bar still shows **Port : 5500** in the lower-right corner.
+    3. In Visual Studio Code, click `index.html` in the sidebar to open it.
+    4. Press **Command-Shift-P**, type `Browser: Open Integrated Browser`, and press Return. A browser opens as a tab inside Visual Studio Code.
+    5. Click the integrated browser's address bar, paste the address with **Command-V**, and press Return. Your sketch appears in the tab.
+    6. Click `sketch.js` in the sidebar to open it.
+    7. Drag your sketch to the right side of the editor and release when you see a blue square (on the right side only). You should see your sketch code and your sketch side by side now.
+    7. Change something visible in your code, like a color number. About a second later, the sketch on the right should reload with your change.
+
+    Use whichever way you like. Way 2 keeps your code and your sketch in one window.
 
 If a check fails, run the setup command from step 2 of the setup again, then repeat the tour. If it still fails, see [If something goes wrong](#if-something-goes-wrong).
 
@@ -152,6 +165,8 @@ If a check fails, run the setup command from step 2 of the setup again, then rep
 | Create an empty file | `touch` *name* |
 | Delete a file (answer `y` to delete, `n` to keep) | `rm` *name* |
 | Open the current folder in Visual Studio Code | `code .` |
+| Start or stop Live Server | Click **Go Live** (or **Port : 5500**) in the status bar |
+| Open a web page inside Visual Studio Code | **Command-Shift-P**, then `Browser: Open Integrated Browser` |
 | Ask Copilot to change the code in a file | **Command-I** in the editor |
 | Open the Copilot chat panel in the sidebar | **Control-Command-I** |
 | Make the editor's text bigger or smaller | Hold **Command** and scroll |
