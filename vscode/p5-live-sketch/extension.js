@@ -1,6 +1,8 @@
 // p5.js Live Sketch
 // ----------------
 // When a folder containing sketch.js opens in VS Code, this extension:
+//   0. closes any integrated browser tabs VS Code restored in this window,
+//      because they load before Live Server is running and show an error,
 //   1. opens sketch.js in the left half of the editor,
 //   2. starts Live Server (the same as clicking "Go Live"),
 //   3. waits until Live Server is serving this project, and
@@ -27,7 +29,19 @@ function activate(context) {
     .getConfiguration("p5LiveSketch")
     .get("openOnStart", true);
   if (openOnStart) {
-    showSketchBesideCode();
+    closeRestoredBrowserTabs().then(showSketchBesideCode);
+  }
+}
+
+// When a project opens again, VS Code restores its browser tabs and loads them
+// right away, before Live Server has started, so they show an error page until
+// the sketch is ready. Closing them at startup means the sketch appears only
+// once it works. This closes every integrated browser tab in this window.
+async function closeRestoredBrowserTabs() {
+  try {
+    await vscode.commands.executeCommand("workbench.action.browser.closeAll");
+  } catch {
+    // No browser tabs were open, so there was nothing to close.
   }
 }
 
