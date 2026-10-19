@@ -180,13 +180,26 @@ Visual Studio Code is set up to point out common mistakes while you type.
 - **In the terminal:** if you type a command that does not exist, the terminal tells you so in plain words and reminds you that the Up arrow brings the command back so you can fix it.
 - **Deleting files:** files you delete with the `rm` command skip the Trash and cannot be recovered, so the terminal reminds you of the answers and asks `remove ...?` before deleting each one. Type `y` and press Return to delete it, or `n` and Return to keep it.
 
+### Reading Error Messages with Error Lens
+
+Normally, Visual Studio Code marks a mistake with a squiggly underline, and you have to hover over it to read what is wrong. The Error Lens extension shows the message right away, at the end of the line that caused it.
+
+- **Color tells you how serious it is.** The whole line is tinted, and the message is colored to match: red for an *error*, which stops your code from running; orange for a *warning*, which might cause a problem; and blue for *information*, which is a suggestion.
+- **Messages update as you type.** When you fix the mistake, the message disappears.
+- **Every problem is also listed in one place.** Press **Command-Shift-M** to open the Problems panel, which lists every error and warning in your open files. Click one to jump to its line.
+- **You can copy a message to ask about it.** Click the line with the problem, press **Command-Shift-P**, and run **Error Lens: Copy Problem Message**. Then paste the message into Copilot's chat (**Control-Command-I**) and ask what it means.
+
+Try it in your tiger project. In `sketch.js`, find the line that starts with `createCanvas(` and delete the `)` near its end. A red message, `')' expected.`, appears at the end of the line. Put the `)` back, and the message goes away.
+
+Error Lens can only show mistakes that Visual Studio Code notices, which are mostly typing mistakes like a missing bracket. A misspelled p5.js function name, such as `creatCanvas`, may not be marked at all.
+
 ## How Visual Studio Code Saves Your Work
 
 Visual Studio Code saves your files automatically, the way the p5.js web editor does, so you do not need to press **Command-S** after every change.
 
-- **When it saves:** about one second after you stop typing, Visual Studio Code saves the file you are editing.
+- **When it Saves:** about one second after you stop typing, Visual Studio Code saves the file you are editing.
 - **With Live Server:** Live Server reloads your sketch in the browser every time a file is saved. Because saving is automatic, your sketch updates about a second after you stop typing. If you pause in the middle of a line, the sketch may briefly show an error; it fixes itself when you finish the line.
-- **New files:** a brand-new file has no name or folder yet. Save it once with **Command-S** and choose where it goes; after that, Visual Studio Code keeps saving it for you.
+- **New Files:** a brand-new file has no name or folder yet. Save it once with **Command-S** and choose where it goes; after that, Visual Studio Code keeps saving it for you.
 - **Undoing a change:** autosave writes over the file each time. To go back, press **Command-Z** to undo, one step at a time, while the file is still open.
 
 ## A Note on Running Commands from the Internet
