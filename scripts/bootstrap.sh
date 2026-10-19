@@ -5,10 +5,14 @@
 # the Mac and then hands off to setup.sh. You run it by pasting one line into
 # Terminal (the README shows it):
 #
-#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
+#     caffeinate -dis /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LWHSTechnicalArts/DeveloperTools/main/scripts/bootstrap.sh)"
 #
 # That line works before the repository is on your Mac: curl downloads this
-# file from GitHub, and "$( ... )" hands its text to bash to run.
+# file from GitHub, and "$( ... )" hands its text to bash to run. caffeinate
+# runs bash and keeps the Mac from sleeping until bash finishes:
+#   -d  keep the display awake
+#   -i  prevent idle sleep
+#   -s  prevent system sleep (only while plugged in to power)
 #
 # The script does three things:
 #   1. Installs Apple's Command Line Tools, which include git, if they are
