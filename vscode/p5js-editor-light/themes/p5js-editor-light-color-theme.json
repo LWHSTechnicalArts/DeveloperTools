@@ -85,6 +85,9 @@
     "statusBar.background": "#ed225d",
     "statusBar.foreground": "#ffffff",
     "statusBar.border": "#ed225d",
+    "statusBar.noFolderBackground": "#d9d9d9",
+    "statusBar.noFolderForeground": "#333333",
+    "statusBar.noFolderBorder": "#d9d9d9",
     "statusBarItem.hoverBackground": "#f10046",
 
     "panel.background": "#f0f0f0",
