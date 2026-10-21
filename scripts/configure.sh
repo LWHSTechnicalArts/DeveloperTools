@@ -232,12 +232,14 @@ target_paths=(
 # The list of Visual Studio Code extensions to install, one per line.
 extensions_file="$repository_directory/vscode/extensions.txt"
 
-# This repository's own Visual Studio Code extensions: the color theme and the
-# helper that shows a p5.js sketch beside its code. They are not on the
-# Visual Studio Code Marketplace, so this script packages and installs them.
+# This repository's own Visual Studio Code extensions: the color theme, the
+# helper that shows a p5.js sketch beside its code, and the "Refresh Copilot"
+# button. They are not on the Visual Studio Code Marketplace, so this script
+# packages and installs them.
 local_extension_folders=(
     "$repository_directory/vscode/p5js-editor-light"
     "$repository_directory/vscode/p5-live-sketch"
+    "$repository_directory/vscode/refresh-copilot"
 )
 
 

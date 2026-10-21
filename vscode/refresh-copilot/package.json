@@ -1,0 +1,19 @@
+{
+  "name": "refresh-copilot",
+  "displayName": "Refresh Copilot",
+  "description": "Adds a Refresh Copilot button to the status bar that updates Copilot's class instructions from GitHub.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": { "vscode": "^1.60.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "refreshCopilot.refresh",
+        "title": "Refresh Copilot: Update Class Instructions"
+      }
+    ]
+  }
+}
