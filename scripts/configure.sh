@@ -222,15 +222,11 @@ source_paths=(
     "$repository_directory/zsh/.zshrc"
     "$repository_directory/zsh/p5js-editor-light.p10k.zsh"
     "$repository_directory/vscode/settings.json"
-    "$repository_directory/copilot/copilot-instructions.md"
 )
-# ~/.copilot also holds Copilot's own data, so only the one instructions file
-# is linked, never the whole folder.
 target_paths=(
     "$HOME/.zshrc"
     "$HOME/.p10k.zsh"
     "$HOME/Library/Application Support/Code/User/settings.json"
-    "$HOME/.copilot/copilot-instructions.md"
 )
 
 # The list of Visual Studio Code extensions to install, one per line.
@@ -248,7 +244,7 @@ local_extension_folders=(
 # --- Main work --------------------------------------------------------------
 echo "Linking configuration files from $repository_directory"
 
-# "${#source_paths[@]}" is the number of items in the array (here, 4).
+# "${#source_paths[@]}" is the number of items in the array (here, 3).
 file_count="${#source_paths[@]}"
 
 # This "for" loop counts index from 0 up to, but not including, file_count.
@@ -316,6 +312,11 @@ else
             mv "$old_link_path" "$backup_directory/$folder_name"
             echo "Backed up:      $old_link_path -> $backup_directory/$folder_name"
             backup_count=$(( backup_count + 1 ))
+            # Visual Studio Code still lists the extension at the old link's
+            # place. Installing the same version again makes it delete that
+            # missing folder first, which fails with "Please restart VS Code
+            # before reinstalling". Uninstalling clears the old listing.
+            "$code_command" --uninstall-extension "local.$folder_name"
         fi
 
         vsix_path="$build_directory/$folder_name.vsix"
