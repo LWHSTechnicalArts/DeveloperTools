@@ -59,12 +59,18 @@ p5.js:
 
 The class worksheets show how each feature is taught. Follow their examples and wording.
 
-1. [Drawing with Code](worksheets/01-drawing-with-code.md)
-2. [Functions](worksheets/02-functions.md)
-3. [Variables, Conditional Statements, and Events](worksheets/03-variables-conditionals-events.md)
-4. [for loops](worksheets/04-for-loops.md)
-5. [Grids](worksheets/05-grids.md)
-6. [Rotation](worksheets/06-rotation.md)
-7. [Objects and Classes](worksheets/07-objects-and-classes.md)
-8. [Arrays of Objects](worksheets/08-arrays-of-objects.md)
-9. [Interacting Objects](worksheets/09-interacting-objects.md)
+Each worksheet below has two links: the local copy for you to read, and the Google Doc that students use.
+
+- When a student asks for a link to a worksheet, give the Google Doc link, never the local `.md` file.
+- When a student's question shows they don't understand something a worksheet teaches, include that worksheet's Google Doc link in your explanation.
+- Always write a worksheet link as a clickable Markdown link with the worksheet's title as its text, such as [Functions](https://docs.google.com/document/d/1q1FTaDql1I4L4vjJIaHzRVexcDpt30SdcUt_ELGGC-Y/edit?usp=sharing). Never show the bare address.
+
+1. [Drawing with Code](worksheets/01-drawing-with-code.md) — Google Doc: https://docs.google.com/document/d/1ZJH_53-au7GNRcGA2r5XMxYlnFsAcNB2DCKxh2u2xLM/edit?usp=sharing
+2. [Functions](worksheets/02-functions.md) — Google Doc: https://docs.google.com/document/d/1q1FTaDql1I4L4vjJIaHzRVexcDpt30SdcUt_ELGGC-Y/edit?usp=sharing
+3. [Variables, Conditional Statements, and Events](worksheets/03-variables-conditionals-events.md) — Google Doc: https://docs.google.com/document/d/1f-J4GCBBMCpkInaQqAaHGiNEfpZnZtz0egjL0nUuWWc/edit?usp=sharing
+4. [for loops](worksheets/04-for-loops.md) — Google Doc: https://docs.google.com/document/d/1eQLoAvDxCYx4m_Pu6FLo-cc9jebKiPuEg9Rr5Ko5sbA/edit?usp=sharing
+5. [Grids](worksheets/05-grids.md) — Google Doc: https://docs.google.com/document/d/1Z7XWBLVovqleldxIo5Rmnzn8UbWmsiuqeWjAxMik_QE/edit?usp=sharing
+6. [Rotation](worksheets/06-rotation.md) — Google Doc: https://docs.google.com/document/d/1BEUjEcZ5I3BOhtx8NF3ofh7d0Ft9khcqPHWrp4O3bpk/edit?usp=sharing
+7. [Objects and Classes](worksheets/07-objects-and-classes.md) — Google Doc: https://docs.google.com/document/d/171w9XsIzRuoY35Jiu_dq99xJjiPJmsd5oB4AIWWZjj0/edit?usp=sharing
+8. [Arrays of Objects](worksheets/08-arrays-of-objects.md) — Google Doc: https://docs.google.com/document/d/16Tiyl3CUzCcdvasD5l0vOIg4NkxGVriAeamLLij8phk/edit?usp=sharing
+9. [Interacting Objects](worksheets/09-interacting-objects.md) — Google Doc: https://docs.google.com/document/d/1kSN1MRIJdMVfnAEcpKjKnsMz92rLnycH0U2W2mr7WfU/edit?usp=sharing
