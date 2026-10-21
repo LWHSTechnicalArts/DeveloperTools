@@ -222,11 +222,15 @@ source_paths=(
     "$repository_directory/zsh/.zshrc"
     "$repository_directory/zsh/p5js-editor-light.p10k.zsh"
     "$repository_directory/vscode/settings.json"
+    "$repository_directory/copilot/copilot-instructions.md"
 )
+# ~/.copilot also holds Copilot's own data, so only the one instructions file
+# is linked, never the whole folder.
 target_paths=(
     "$HOME/.zshrc"
     "$HOME/.p10k.zsh"
     "$HOME/Library/Application Support/Code/User/settings.json"
+    "$HOME/.copilot/copilot-instructions.md"
 )
 
 # The list of Visual Studio Code extensions to install, one per line.
@@ -244,7 +248,7 @@ local_extension_folders=(
 # --- Main work --------------------------------------------------------------
 echo "Linking configuration files from $repository_directory"
 
-# "${#source_paths[@]}" is the number of items in the array (here, 3).
+# "${#source_paths[@]}" is the number of items in the array (here, 4).
 file_count="${#source_paths[@]}"
 
 # This "for" loop counts index from 0 up to, but not including, file_count.
