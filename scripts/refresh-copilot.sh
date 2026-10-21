@@ -10,8 +10,9 @@
 # such as vscode/settings.json after a change in Visual Studio Code's Settings
 # screen.
 #
-# You don't need to run it yourself. configure.sh sets up a "launch agent,"
-# which tells macOS to run this script every 15 minutes in the background.
+# You don't need to run it yourself. configure-copilot.sh sets up a
+# "launch agent," which tells macOS to run this script every 15 minutes in
+# the background.
 #
 # How to run it by hand (from inside the DeveloperTools folder):
 #
