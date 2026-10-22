@@ -1,0 +1,51 @@
+# update-worksheets.yml
+# ---------------------
+# This GitHub Actions workflow keeps copilot/worksheets/ matching the class
+# worksheets in Google Docs. Every hour, GitHub runs scripts/update-worksheets.sh
+# on one of its Macs. If any worksheet changed, it commits the new files to
+# main, and each student's launch agent copies them down within 15 minutes
+# (see scripts/refresh-copilot.sh).
+#
+# To run it right away: open the repository on GitHub, click Actions, click
+# "Update worksheets", and click "Run workflow".
+
+name: Update worksheets
+
+on:
+  schedule:
+    # Minute 17 of every hour. GitHub's busiest times are the start of each
+    # hour, when scheduled runs can be delayed or dropped.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+# Let the workflow push commits with the token GitHub gives each run.
+permissions:
+  contents: write
+
+# Never let two runs push at the same time.
+concurrency:
+  group: update-worksheets
+
+jobs:
+  update:
+    # update-worksheets.sh uses macOS's sed ("sed -i ''"), so it runs on a Mac.
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download the worksheets
+        run: bash scripts/update-worksheets.sh
+
+      - name: Commit any changes
+        run: |
+          # git status --porcelain lists changed and new files, one per line,
+          # and prints nothing when there are none. -z is true for empty text.
+          if [ -z "$(git status --porcelain -- copilot/worksheets)" ]; then
+            echo "The worksheets already match Google Docs."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add copilot/worksheets
+          git commit -m "updated worksheets from google docs"
+          git push

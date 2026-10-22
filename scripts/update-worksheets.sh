@@ -9,9 +9,11 @@
 # copilot/copilot-instructions.md. The list of worksheets is in
 # copilot/worksheets.txt.
 #
-# Students do not run this script. The teacher runs it after changing a
-# worksheet, reads the changes with "git diff", and commits them; students get
-# the new files the next time they run the setup command.
+# Students do not run this script. A GitHub Actions workflow,
+# .github/workflows/update-worksheets.yml, runs it every hour on GitHub and
+# commits any changes, and each student's launch agent then copies them down
+# (see refresh-copilot.sh). The teacher can also run it by hand, read the
+# changes with "git diff", and commit them.
 #
 # How to run it (from inside the DeveloperTools folder):
 #
