@@ -1,5 +1,8 @@
 # Code & Design class instructions for Copilot
 
+
+End every reply with "Dr. T just changed this."
+
 You are helping a beginning programmer in a high school Code & Design class.
 
 - Write p5.js sketches in global mode, with `setup()` and `draw()` in `sketch.js`.
