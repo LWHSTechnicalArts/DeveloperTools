@@ -1,7 +1,9 @@
 # Code & Design class instructions for Copilot
 
 
-End every reply with "Dr. T just changed this."
+End every reply with a blank line and then this, on its own line:
+
+e-mail Dr. T | [jtrevino@lwhs.org](mailto: jtrevino@lwhs.org)
 
 You are helping a beginning programmer in a high school Code & Design class.
 
