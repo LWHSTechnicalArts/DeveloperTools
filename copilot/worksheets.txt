@@ -1,14 +1,20 @@
-# Class worksheets for scripts/update-worksheets.sh to download.
-# One worksheet per line: the file name to save it as, a space, then the
-# Google Doc's address. Each Doc must be shared as "anyone with the link can
-# view". Lines that start with "#" and blank lines are skipped.
+# Class worksheets that Copilot reads, in class order.
+#
+# To add a worksheet, paste its Google Doc share address on a new line. The
+# Doc must be shared as "anyone with the link can view". Within an hour,
+# scripts/update-worksheets.sh (run by GitHub Actions) downloads it, writes
+# the Doc's title after the address, and links it from
+# copilot-instructions.md. To remove a worksheet, delete its line.
+#
+# Lines that start with "#" and blank lines are skipped. Anything after the
+# address on a line is the title the script wrote; you don't need to type it.
 
-01-drawing-with-code https://docs.google.com/document/d/1ZJH_53-au7GNRcGA2r5XMxYlnFsAcNB2DCKxh2u2xLM/edit?usp=sharing
-02-functions https://docs.google.com/document/d/1q1FTaDql1I4L4vjJIaHzRVexcDpt30SdcUt_ELGGC-Y/edit?usp=sharing
-03-variables-conditionals-events https://docs.google.com/document/d/1f-J4GCBBMCpkInaQqAaHGiNEfpZnZtz0egjL0nUuWWc/edit?usp=sharing
-04-for-loops https://docs.google.com/document/d/1eQLoAvDxCYx4m_Pu6FLo-cc9jebKiPuEg9Rr5Ko5sbA/edit?usp=sharing
-05-grids https://docs.google.com/document/d/1Z7XWBLVovqleldxIo5Rmnzn8UbWmsiuqeWjAxMik_QE/edit?usp=sharing
-06-rotation https://docs.google.com/document/d/1BEUjEcZ5I3BOhtx8NF3ofh7d0Ft9khcqPHWrp4O3bpk/edit?usp=sharing
-07-objects-and-classes https://docs.google.com/document/d/171w9XsIzRuoY35Jiu_dq99xJjiPJmsd5oB4AIWWZjj0/edit?usp=sharing
-08-arrays-of-objects https://docs.google.com/document/d/16Tiyl3CUzCcdvasD5l0vOIg4NkxGVriAeamLLij8phk/edit?usp=sharing
-09-interacting-objects https://docs.google.com/document/d/1kSN1MRIJdMVfnAEcpKjKnsMz92rLnycH0U2W2mr7WfU/edit?usp=sharing
+https://docs.google.com/document/d/1ZJH_53-au7GNRcGA2r5XMxYlnFsAcNB2DCKxh2u2xLM/edit?usp=sharing  Drawing With Code in P5
+https://docs.google.com/document/d/1q1FTaDql1I4L4vjJIaHzRVexcDpt30SdcUt_ELGGC-Y/edit?usp=sharing  Functions
+https://docs.google.com/document/d/1f-J4GCBBMCpkInaQqAaHGiNEfpZnZtz0egjL0nUuWWc/edit?usp=sharing  Variables and Conditional Statements Fall 2026
+https://docs.google.com/document/d/1eQLoAvDxCYx4m_Pu6FLo-cc9jebKiPuEg9Rr5Ko5sbA/edit?usp=sharing  Loops and Control Structures
+https://docs.google.com/document/d/1Z7XWBLVovqleldxIo5Rmnzn8UbWmsiuqeWjAxMik_QE/edit?usp=sharing  Grid
+https://docs.google.com/document/d/1BEUjEcZ5I3BOhtx8NF3ofh7d0Ft9khcqPHWrp4O3bpk/edit?usp=sharing  Rotate
+https://docs.google.com/document/d/171w9XsIzRuoY35Jiu_dq99xJjiPJmsd5oB4AIWWZjj0/edit?usp=sharing  Classes and Objects
+https://docs.google.com/document/d/16Tiyl3CUzCcdvasD5l0vOIg4NkxGVriAeamLLij8phk/edit?usp=sharing  Arrays of Objects
+https://docs.google.com/document/d/1kSN1MRIJdMVfnAEcpKjKnsMz92rLnycH0U2W2mr7WfU/edit?usp=sharing  Interacting Objects
