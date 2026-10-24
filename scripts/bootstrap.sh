@@ -155,6 +155,19 @@ print_step "Downloading DeveloperTools to $repository_directory"
 if [ -d "$repository_directory/.git" ]; then
     echo "Already downloaded. Updating it to the newest version."
     # "git -C FOLDER" runs git as if you had cd'd into FOLDER.
+    #
+    # vscode/settings.json is linked to Visual Studio Code's own settings
+    # file, so anything Visual Studio Code writes there, such as a setting
+    # you changed, counts as a local change, and git refuses to pull a new
+    # class version over it. "git stash push" sets those changes aside in
+    # git's stash and puts back the last downloaded version, so the update
+    # below can bring in the newest class settings.
+    #   -m "..."  a message, shown by "git stash list"
+    #   --        everything after this is a file path, not an option
+    # Nothing is lost: "git stash list" shows the saved changes, and
+    # "git -C ~/DeveloperTools stash pop" puts the newest ones back.
+    # If the file has no local changes, git saves nothing and moves on.
+    git -C "$repository_directory" stash push -m "settings.json before update" -- vscode/settings.json
     # "pull --ff-only" downloads new changes, but only if that cannot clash
     # with changes made on this Mac. If it would, the script keeps going with
     # the copy already here instead of stopping.

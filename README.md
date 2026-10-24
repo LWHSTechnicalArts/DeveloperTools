@@ -213,6 +213,8 @@ Keep the `DeveloperTools` folder in your home folder, and do not rename or delet
 
 Running the setup command again is always safe. The scripts skip anything that is already installed, update your copy of this repository, and finish the rest. To run it again, open Terminal, paste the same command from step 2, and press **Return**.
 
+Running the setup command again also brings in the newest class settings for Visual Studio Code. Any setting you changed yourself, in the Settings screen, is set aside first so the class settings can update; it is saved, not deleted. To use your own setting again, change it once more in the Settings screen (**Command-comma**).
+
 These are the most common problems and their fixes:
 
 - **`...DeveloperTools already exists but is not a copy of this repository`**: Your home folder already has a folder named `DeveloperTools` that did not come from this repository. Rename that folder in Finder, then run the setup command again.
