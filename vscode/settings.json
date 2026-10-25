@@ -27,6 +27,7 @@
     },
     "editor.inlineSuggest.enabled": false,
     "github.copilot.editor.enableAutoCompletions": false,
+    "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
     "claudeCode.preferredLocation": "panel",
     "liveServer.settings.donotShowInfoMsg": true,
     "workbench.colorTheme": "p5.js Editor Light"
