@@ -16,6 +16,10 @@
 // host ("Restart Local Agent Host") and opens a new chat, as if the student
 // had clicked the chat's + button, so they never keep typing into a chat that
 // still has the old copy.
+//
+// The chat that is already open when VS Code starts did not always have the
+// class instructions, while a chat started with the + button did. So each
+// time VS Code finishes starting, this extension also opens a new chat.
 
 const vscode = require("vscode");
 const childProcess = require("child_process");
@@ -40,6 +44,19 @@ function activate(context) {
     button,
     vscode.commands.registerCommand("refreshCopilot.refresh", () => refreshCopilot(button))
   );
+
+  startFreshChat();
+}
+
+// Runs once, at startup ("onStartupFinished" in package.json). It shows no
+// message, because nothing changed that the student needs to know about.
+async function startFreshChat() {
+  try {
+    await vscode.commands.executeCommand(newChatCommand);
+    await vscode.commands.executeCommand(openChatCommand);
+  } catch {
+    // This version of VS Code has no such commands; the + button still works.
+  }
 }
 
 async function refreshCopilot(button) {
