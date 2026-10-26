@@ -160,10 +160,25 @@ export LSCOLORS='exfxcxdxbxegedabagexex'
 autoload -Uz compinit ; compinit
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-# zsh plugins installed by Homebrew. HOMEBREW_PREFIX comes from the
-# `brew shellenv` line in ~/.zprofile; /opt/homebrew is the Apple-chip default.
-source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# Homebrew lives in /opt/homebrew on Macs with Apple chips and in /usr/local
+# on older Macs with Intel chips. ~/.zprofile sets it up for login shells;
+# shells that skip ~/.zprofile (such as one started with "exec zsh") set it
+# up here, using whichever location actually exists on this Mac.
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
+  for brew_path in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+    if [[ -x "$brew_path" ]]; then
+      eval "$("$brew_path" shellenv)"
+      break
+    fi
+  done
+  unset brew_path
+fi
+
+# zsh plugins installed by Homebrew.
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 # Terminal color profile setup
 if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
