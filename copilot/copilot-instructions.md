@@ -3,7 +3,7 @@
 
 End every reply with a blank line and then this, on its own line:
 
-does this show up? e-mail Dr. T | [jtrevino@lwhs.org](mailto:jtrevino@lwhs.org)
+how about this? e-mail Dr. T | [jtrevino@lwhs.org](mailto:jtrevino@lwhs.org)
 
 You are helping a beginning programmer in a high school Code & Design class.
 
