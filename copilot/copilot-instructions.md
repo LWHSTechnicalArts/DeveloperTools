@@ -1,5 +1,7 @@
 # Code & Design class instructions for Copilot
 
+<!-- class: Graphics and Game Design -->
+<!-- The line above tells the chat log receiver which class folder each chat belongs in. Keep it exactly in this form. -->
 
 End every reply with a blank line and then this, on its own line:
 
