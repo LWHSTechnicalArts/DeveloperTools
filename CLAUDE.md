@@ -100,7 +100,7 @@ Values come from the p5.js web editor's variables stylesheet (light theme).
 
 ## Working here
 
-- The GitHub org is shared with students, so keep secrets, tokens and private details out of committed files.
+- The GitHub organization `LWHSTechnicalArts` has only teachers as members (10 accounts, no outside collaborators, checked 2026-10-26). Students have their own GitHub accounts, made with their school e-mail addresses, and are not members. This repository is public, so keep secrets, tokens and private details out of committed files.
 - Keep the palette consistent across the terminal block, the prompt config and the Visual Studio Code theme.
 - Note any new dependency the setup gains.
 - Validate before calling a change done: `zsh -n` for shell files, `bash -n` for bash scripts, and `python3 -m json.tool` for JSON.
