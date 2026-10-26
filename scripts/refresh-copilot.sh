@@ -47,6 +47,22 @@ folder_matches() {
     git diff --quiet "$1" -- copilot
 }
 
+# folder_matches_a_github_version checks whether the copilot folder on disk
+# matches any version of it that was ever on GitHub. If it does, nobody has
+# edited it here: it is a copy this script made earlier, even if git pull or
+# git fetch has downloaded newer versions since then.
+# git rev-list -n 100 VERSION -- copilot prints the last 100 versions that
+# changed the copilot folder, newest first. "return 0" means success.
+folder_matches_a_github_version() {
+    local version
+    for version in $(git rev-list -n 100 "$remote_version" -- copilot); do
+        if folder_matches "$version"; then
+            return 0
+        fi
+    done
+    return 1
+}
+
 
 # --- Settings ---------------------------------------------------------------
 repository_directory="$(get_repository_directory)"
@@ -58,26 +74,27 @@ cd "$repository_directory"
 
 
 # --- Main work --------------------------------------------------------------
+# git fetch downloads the newest version from GitHub without changing any
+# files here. -q keeps it quiet.
+git fetch -q origin
+
 # Leave the folder alone if someone is working on it. A copy has local work
 # when it has commits that are not on GitHub yet, or when the copilot folder
-# matches neither this copy's own version nor the last version downloaded.
+# matches no version that was ever on GitHub.
 # git merge-base --is-ancestor A B succeeds when B already includes A.
 # "!" turns success into failure and failure into success.
 if ! git merge-base --is-ancestor HEAD "$remote_version"; then
     echo "Skipped: this copy has commits that are not on GitHub yet."
     exit 0
 fi
-if ! folder_matches HEAD && ! folder_matches "$remote_version"; then
-    echo "Skipped: the copilot folder has local changes."
-    exit 0
-fi
-
-# git fetch downloads the newest version from GitHub without changing any
-# files here. -q keeps it quiet.
-git fetch -q origin
 
 # Nothing to do if the folder already matches the newest version.
 if folder_matches "$remote_version"; then
+    exit 0
+fi
+
+if ! folder_matches_a_github_version; then
+    echo "Skipped: the copilot folder has local changes."
     exit 0
 fi
 
