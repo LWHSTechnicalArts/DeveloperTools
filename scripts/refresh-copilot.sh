@@ -66,11 +66,22 @@ folder_matches_a_github_version() {
 
 # --- Settings ---------------------------------------------------------------
 repository_directory="$(get_repository_directory)"
-remote_version="origin/main"
 
 # The launch agent starts this script from the home folder, so move into the
 # repository first. Every git command below works on the folder it runs in.
 cd "$repository_directory"
+
+# remote_version is the GitHub copy of the branch this folder is on, such as
+# origin/main on a student's Mac or origin/observe on a test Mac.
+# "@{upstream}" is git's name for that copy, and git rev-parse
+# --abbrev-ref turns it into a short name like origin/main. It fails when
+# the branch has no GitHub copy (or no branch is checked out), and
+# "2> /dev/null" hides git's own error message so the script can print a
+# clearer one.
+if ! remote_version="$(git rev-parse --abbrev-ref "@{upstream}" 2> /dev/null)"; then
+    echo "Skipped: this branch has no copy on GitHub to update from."
+    exit 0
+fi
 
 
 # --- Main work --------------------------------------------------------------
