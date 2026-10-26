@@ -225,6 +225,13 @@ if ! command -v code > /dev/null && [[ -d "$visual_studio_code_bin" ]]; then
 fi
 unset visual_studio_code_bin
 
+# Copilot in Visual Studio Code records each chat to this file (see the
+# github.copilot.chat.otel settings in vscode/settings.json). The settings
+# file cannot hold this path, because Copilot does not expand "~" there.
+# Visual Studio Code reads variables like this one from the shell each time
+# it starts, so a change here takes effect after quitting and reopening it.
+export COPILOT_OTEL_FILE_EXPORTER_PATH="$HOME/Library/Logs/DeveloperTools-copilot/copilot-chats.jsonl"
+
 # Safer, clearer file commands for beginners.
 # rm asks before deleting each file, because files removed with rm skip the
 # Trash. macOS's rm prints its own question ("remove FILE?") and cannot change
