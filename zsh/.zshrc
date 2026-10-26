@@ -215,9 +215,41 @@ unset visual_studio_code_bin
 # Trash. macOS's rm prints its own question ("remove FILE?") and cannot change
 # its wording, so this function prints a reminder of the answers first, then
 # runs the real rm ("command rm") with -i to ask about each file.
+# -f ("force", as in rm -rf) would skip every question, so this function
+# removes it. A folder deleted with -r or -R gets one question for the whole
+# folder instead of one for every file inside it.
 rm() {
-  print -u2 "(Type y and press Return to delete, or n and Return to keep.)"
-  command rm -i "$@"
+  local -a options targets
+  local argument answer
+  local is_reading_options=1 has_shown_reminder=0 exit_status=0
+  # rm reads options until "--" or the first file name.
+  for argument in "$@"; do
+    if (( is_reading_options )) && [[ $argument == -- ]]; then
+      is_reading_options=0
+    elif (( is_reading_options )) && [[ $argument == -?* ]]; then
+      argument=${argument//f/}
+      [[ $argument == - ]] || options+=($argument)
+    else
+      is_reading_options=0
+      targets+=($argument)
+    fi
+  done
+  # With no file names, let the real rm print how to use it.
+  (( $#targets )) || { command rm -i $options; return }
+  for argument in $targets; do
+    if [[ -d $argument && ! -L $argument && ${(j::)options} == *[rR]* ]]; then
+      print -n -u2 "Do you want to delete the folder \"$argument\" and all of its contents? (y/n) "
+      read -r answer
+      if [[ $answer == [yY]* ]]; then
+        command rm $options -- $argument || exit_status=1
+      fi
+    else
+      (( has_shown_reminder )) || print -u2 "(Type y and press Return to delete, or n and Return to keep.)"
+      has_shown_reminder=1
+      command rm -i $options -- $argument || exit_status=1
+    fi
+  done
+  return $exit_status
 }
 # ls -F adds a "/" after folder names (and "*" after programs), so folders
 # stand out even without color. -G keeps oh-my-zsh's colors.
