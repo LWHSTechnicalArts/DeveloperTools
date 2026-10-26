@@ -13,7 +13,9 @@
 // Copilot chats run in VS Code's "local agent host," which reads the class
 // instructions when it starts and keeps that copy, even through "Reload
 // Window." So once the folder is current, this extension restarts the agent
-// host ("Restart Local Agent Host"), and the next chat reads the new copy.
+// host ("Restart Local Agent Host") and opens a new chat, as if the student
+// had clicked the chat's + button, so they never keep typing into a chat that
+// still has the old copy.
 
 const vscode = require("vscode");
 const childProcess = require("child_process");
@@ -22,6 +24,8 @@ const os = require("os");
 const path = require("path");
 
 const restartCommand = "workbench.action.chat.restartLocalAgentHost";
+const newChatCommand = "workbench.action.chat.newChat";
+const openChatCommand = "workbench.action.chat.open";
 const buttonText = "$(sync) Refresh Copilot";
 const busyButtonText = "$(sync~spin) Refreshing Copilot";
 
@@ -97,13 +101,28 @@ async function showResult(result) {
 async function restartCopilot(statusMessage) {
   try {
     await vscode.commands.executeCommand(restartCommand);
-    vscode.window.showInformationMessage(
-      `${statusMessage} Copilot was restarted to read them. Start a new chat to use them.`
-    );
   } catch {
     // This version of VS Code has no "Restart Local Agent Host" command.
     vscode.window.showInformationMessage(
       `${statusMessage} Quit VS Code and open it again so Copilot reads them.`
+    );
+    return;
+  }
+  await openNewChat(statusMessage);
+}
+
+// VS Code's own code opens a fresh chat with these two commands: newChat
+// starts it, and open shows the chat view if it is closed.
+async function openNewChat(statusMessage) {
+  try {
+    await vscode.commands.executeCommand(newChatCommand);
+    await vscode.commands.executeCommand(openChatCommand);
+    vscode.window.showInformationMessage(
+      `${statusMessage} Copilot was restarted to read them, and a new chat is open.`
+    );
+  } catch {
+    vscode.window.showInformationMessage(
+      `${statusMessage} Copilot was restarted to read them. Click + in the chat to start a new chat.`
     );
   }
 }

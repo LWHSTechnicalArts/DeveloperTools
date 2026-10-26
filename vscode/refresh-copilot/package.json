@@ -2,7 +2,7 @@
   "name": "refresh-copilot",
   "displayName": "Refresh Copilot",
   "description": "Adds a Refresh Copilot button to the status bar that updates Copilot's class instructions from GitHub.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "local",
   "engines": { "vscode": "^1.60.0" },
   "categories": ["Other"],
