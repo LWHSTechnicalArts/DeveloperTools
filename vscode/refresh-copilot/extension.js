@@ -9,6 +9,11 @@
 //
 // It can also be run from the Command Palette:
 // "Refresh Copilot: Update Class Instructions".
+//
+// Copilot chats run in VS Code's "local agent host," which reads the class
+// instructions when it starts and keeps that copy, even through "Reload
+// Window." So once the folder is current, this extension restarts the agent
+// host ("Restart Local Agent Host"), and the next chat reads the new copy.
 
 const vscode = require("vscode");
 const childProcess = require("child_process");
@@ -16,6 +21,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 
+const restartCommand = "workbench.action.chat.restartLocalAgentHost";
 const buttonText = "$(sync) Refresh Copilot";
 const busyButtonText = "$(sync~spin) Refreshing Copilot";
 
@@ -72,7 +78,9 @@ function runScript(scriptPath) {
 
 // refresh-copilot.sh prints a line starting with "Skipped:" when it leaves the
 // folder alone, a line ending in "updated the copilot folder from GitHub."
-// when it changes it, and nothing when the folder already matches.
+// when it changes it, and nothing when the folder already matches. The
+// launch agent may have updated the folder in the background already, so
+// Copilot is restarted in both of the last two cases.
 async function showResult(result) {
   if (result.error) {
     const details = result.errorOutput || result.error.message;
@@ -80,20 +88,23 @@ async function showResult(result) {
   } else if (result.output.startsWith("Skipped:")) {
     vscode.window.showWarningMessage(`Copilot was not refreshed. ${result.output}`);
   } else if (result.output.includes("updated the copilot folder")) {
-    await offerReload();
+    await restartCopilot("Copilot's class instructions were updated.");
   } else {
-    vscode.window.showInformationMessage("Copilot's class instructions are already up to date.");
+    await restartCopilot("Copilot's class instructions are up to date.");
   }
 }
 
-async function offerReload() {
-  const reloadChoice = "Reload Window";
-  const choice = await vscode.window.showInformationMessage(
-    "Copilot's class instructions were updated. Reload the window so Copilot reads them.",
-    reloadChoice
-  );
-  if (choice === reloadChoice) {
-    vscode.commands.executeCommand("workbench.action.reloadWindow");
+async function restartCopilot(statusMessage) {
+  try {
+    await vscode.commands.executeCommand(restartCommand);
+    vscode.window.showInformationMessage(
+      `${statusMessage} Copilot was restarted to read them. Start a new chat to use them.`
+    );
+  } catch {
+    // This version of VS Code has no "Restart Local Agent Host" command.
+    vscode.window.showInformationMessage(
+      `${statusMessage} Quit VS Code and open it again so Copilot reads them.`
+    );
   }
 }
 
