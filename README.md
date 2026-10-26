@@ -19,6 +19,33 @@ The setup script installs these programs and settings for you:
 
 The script does not delete anything. If your Mac already has one of the settings files it replaces, the script moves your old file into a folder named `DeveloperTools-backups` in your home folder.
 
+## Your Copilot Chats Are Recorded
+
+*For students and parents.* This setup records your chats with GitHub Copilot in Visual Studio Code and saves them in a school Google Drive folder. Please read this section before you run the setup.
+
+**What is recorded:**
+
+- Everything you type to Copilot in Visual Studio Code, and every reply Copilot gives.
+- Anything Copilot reads or changes while it answers, such as the code in your project files.
+- Your name, which the setup asks you to type once; the GitHub account you use to sign in to Copilot; and your Mac's user name and computer name.
+
+Only chats with Copilot inside Visual Studio Code are recorded. Nothing else on your Mac is recorded, such as your web browsing, other apps, or AI tools you use in a web browser.
+
+**Where it goes:** Your Mac saves each chat to a file in your home folder as you go, and you can read that file at any time in `~/Library/Logs/DeveloperTools-copilot/`. About every 15 minutes, the new part of that file is sent to a folder in the school's Google Drive, where each student has their own folder. Copilot itself also sends your chats to GitHub to answer them; that happens whether or not they are recorded.
+
+**Who can read it:** Your Technical Arts teacher, the school's technology director, and the student deans. The folder is not shared with other students or with anyone outside the school.
+
+**Why:**
+
+- **To help you learn.** Your teacher uses Copilot to summarize what each student and the whole class understand well and still find hard, with quotes from the chats. (An AI summary can be wrong, so your teacher reads the actual chats before acting on one.)
+- **Safety.** If a chat suggests that someone could be harmed, such as thoughts of suicide or self-harm, threats, hate speech, or requests to make weapons, the technology director and the student deans will follow up.
+
+**Chats are not watched live.** It can take an hour or more before anyone sees a chat. If you or a friend need help now, talk to a dean, a counselor, or another adult you trust right away, or call or text **988**, the Suicide & Crisis Lifeline, at any hour.
+
+**How long it is kept:** The school keeps the chats in Google Drive with no set end date.
+
+If you or your parents have questions about the recording, ask your teacher before you run the setup.
+
 ## Before You Start
 
 You need three things before you begin:
