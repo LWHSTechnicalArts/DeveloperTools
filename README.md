@@ -11,7 +11,7 @@ This Bash script sets up your Mac for Tech Arts code & design projects. It insta
 The setup script installs these programs and settings for you:
 
 - **Homebrew**, a tool that installs other programs from the command line.
-- **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme; three extensions: p5.vscode and Live Server for p5.js sketches, and Error Lens for catching mistakes; and p5.js Live Sketch, a small helper from this repository that shows your sketch running beside your code.
+- **Visual Studio Code**, the code editor we use in class, with the p5.js Editor Light theme; four extensions: p5.vscode and Live Server for p5.js sketches, Error Lens for catching mistakes, and GitHub Pull Requests for working with GitHub; and p5.js Live Sketch, a small helper from this repository that shows your sketch running beside your code.
 - **oh-my-zsh** and **Powerlevel10k**, which give your terminal a colored, informative prompt.
 - **zsh-autosuggestions** and **zsh-syntax-highlighting**, which suggest and color commands as you type.
 - **MesloLGS NF**, a font with the symbols the prompt draws.
@@ -73,7 +73,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 1. **Open Visual Studio Code (VS Code).** Press **Command-Space**, type `Visual Studio Code`, and press **Return**. If macOS asks whether you are sure you want to open it, click **Open**. The editor uses the light p5.js Editor Light theme.
 
-2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode**, **Live Server**, and **Error Lens** are in the list of installed extensions.
+2. **Check the extensions.** Press **Command-Shift-X** to open the Extensions view. **p5.vscode**, **Live Server**, **Error Lens**, and **GitHub Pull Requests** are in the list of installed extensions.
 
 ### Open the Terminal Inside Visual Studio Code
 
@@ -278,6 +278,7 @@ GitHub Copilot is built into Visual Studio Code. These guides explain how to wor
 - **p5.vscode** extension: [p5.vscode on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode)
 - **Live Server** extension: [Live Server on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - **Error Lens** extension: [Error Lens on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- **GitHub Pull Requests** extension: [GitHub Pull Requests on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - **p5.js**, the library the p5.vscode extension supports: [p5.js reference](https://p5js.org/reference/)
 - **zsh**, the shell in Terminal and in Visual Studio Code's terminal: [Use zsh as the default shell on your Mac](https://support.apple.com/en-us/102360) and [zsh documentation](https://zsh.sourceforge.io/Doc/)
 - **oh-my-zsh**: [oh-my-zsh wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)

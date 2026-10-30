@@ -16,3 +16,7 @@ ritwickdey.LiveServer
 # Error Lens: shows each error or warning message on the line where it happens,
 # instead of only a squiggly underline.
 usernamehw.errorlens
+
+# GitHub Pull Requests: GitHub's official extension for reviewing and managing
+# pull requests and issues from inside Visual Studio Code.
+GitHub.vscode-pull-request-github
