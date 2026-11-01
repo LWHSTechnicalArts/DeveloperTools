@@ -32,6 +32,12 @@
     "chat.agentHost.codexAgent.enabled": false,
     "chat.editor.localAgent.enabled": false,
     "chat.defaultToCopilotHarness": true,
+    "chat.tools.global.autoApprove": false,
+    "chat.permissions.default": "default",
+    "chat.defaultConfiguration": {
+        "mode": "interactive",
+        "approvals": "manual"
+    },
     "claudeCode.preferredLocation": "panel",
     "liveServer.settings.donotShowInfoMsg": true,
     "workbench.colorTheme": "p5.js Editor Light"
