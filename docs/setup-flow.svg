@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1484" viewBox="0 0 1000 1484"><defs><marker id="head-747474" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#747474"/></marker><marker id="head-ed225d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ed225d"/></marker><marker id="head-0b7ca9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7ca9"/></marker><marker id="head-7a5a3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a5a3a"/></marker></defs>
+<rect width="1000" height="1484" fill="#fbfbfb"/>
+<text xml:space="preserve" x="500.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#333333" text-anchor="middle" font-weight="bold">How the setup command runs</text>
+<rect x="150" y="70" width="580" height="92" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="98" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Student pastes the command in Terminal</text>
+<text xml:space="preserve" x="166" y="124" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">caffeinate -dis /bin/bash -c &quot;$(curl -fsSL .../bootstrap.sh)&quot;</text>
+<text xml:space="preserve" x="166" y="144" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">caffeinate keeps the Mac awake until the command finishes.</text>
+<polyline points="440.0,162 440.0,202" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="150" y="202" width="580" height="192" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="230" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/bootstrap.sh</text>
+<text xml:space="preserve" x="166" y="256" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">1. Install Apple&#x27;s Command Line Tools if xcode-select -p fails.</text>
+<text xml:space="preserve" x="166" y="276" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    If Xcode&#x27;s license is not accepted, run sudo xcodebuild -license.</text>
+<text xml:space="preserve" x="166" y="296" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">2. Clone the repository into ~/DeveloperTools. If it is already</text>
+<text xml:space="preserve" x="166" y="316" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    there, set aside local edits to vscode/settings.json</text>
+<text xml:space="preserve" x="166" y="336" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    (git stash push), then run git pull --ff-only.</text>
+<text xml:space="preserve" x="166" y="356" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">3. exec scripts/setup.sh (bootstrap.sh ends here).</text>
+<text xml:space="preserve" x="166" y="376" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">A trap on ERR prints the failing line number.</text>
+<polyline points="440.0,394 440.0,434" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="150" y="434" width="580" height="72" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="462" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/setup.sh</text>
+<text xml:space="preserve" x="166" y="488" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Runs install.sh, then configure-copilot.sh, then configure.sh.</text>
+<polyline points="440.0,506 440.0,546" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="150" y="546" width="580" height="212" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="574" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/install.sh</text>
+<text xml:space="preserve" x="166" y="600" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">1. Homebrew, and the brew shellenv line in ~/.zprofile.</text>
+<text xml:space="preserve" x="166" y="620" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">2. Visual Studio Code (skipped if already in /Applications).</text>
+<text xml:space="preserve" x="166" y="640" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">3. zsh-autosuggestions and zsh-syntax-highlighting.</text>
+<text xml:space="preserve" x="166" y="660" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">4. oh-my-zsh.</text>
+<text xml:space="preserve" x="166" y="680" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">5. Powerlevel10k, cloned into oh-my-zsh.</text>
+<text xml:space="preserve" x="166" y="700" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">6. MesloLGS NF font for the terminal.</text>
+<text xml:space="preserve" x="166" y="720" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">7. Inconsolata font for the editor.</text>
+<text xml:space="preserve" x="166" y="740" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Every step skips work that is already done.</text>
+<polyline points="440.0,758 440.0,798" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<polygon points="440.0,798 610.0,843 440.0,888 270.0,843" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="440.0" y="848" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Exit status 0?</text>
+<polyline points="610.0,843 790,843" fill="none" stroke="#ed225d" stroke-width="2" marker-end="url(#head-ed225d)"/>
+<text xml:space="preserve" x="625.0" y="835" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ed225d" text-anchor="start" font-weight="bold">No</text>
+<rect x="790" y="805" width="190" height="92" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="806" y="833" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Stop</text>
+<text xml:space="preserve" x="806" y="859" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Print an error,</text>
+<text xml:space="preserve" x="806" y="879" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">then exit 1.</text>
+<polyline points="440.0,888 440.0,938" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<text xml:space="preserve" x="448.0" y="918" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="150" y="938" width="580" height="132" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="966" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/configure-copilot.sh</text>
+<text xml:space="preserve" x="166" y="992" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">1. Link ~/.copilot/copilot-instructions.md to copilot/.</text>
+<text xml:space="preserve" x="166" y="1012" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">2. Write and load a launch agent that runs</text>
+<text xml:space="preserve" x="166" y="1032" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    scripts/refresh-copilot.sh every 15 minutes.</text>
+<text xml:space="preserve" x="166" y="1052" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Runs first, so an extension failure in configure.sh can&#x27;t block it.</text>
+<polyline points="440.0,1070 440.0,1110" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="150" y="1110" width="580" height="192" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="1138" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/configure.sh</text>
+<text xml:space="preserve" x="166" y="1164" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">1. Link ~/.zshrc, ~/.p10k.zsh and VS Code&#x27;s settings.json,</text>
+<text xml:space="preserve" x="166" y="1184" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    moving anything in the way to ~/DeveloperTools-backups/.</text>
+<text xml:space="preserve" x="166" y="1204" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">2. Install each extension in vscode/extensions.txt.</text>
+<text xml:space="preserve" x="166" y="1224" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">3. Package the three local extensions as .vsix files and install</text>
+<text xml:space="preserve" x="166" y="1244" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    them with --force. An old symlinked copy is backed up and</text>
+<text xml:space="preserve" x="166" y="1264" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    uninstalled first.</text>
+<text xml:space="preserve" x="166" y="1284" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">4. Patch p5.vscode&#x27;s p5types/tsconfig.json.</text>
+<polyline points="440.0,1302 440.0,1342" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="150" y="1342" width="580" height="112" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="166" y="1370" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">The Mac is set up</text>
+<text xml:space="preserve" x="166" y="1396" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">The command is safe to run again. Rerunning it is how a Mac</text>
+<text xml:space="preserve" x="166" y="1416" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">gets new settings, scripts and extensions; copilot/ updates</text>
+<text xml:space="preserve" x="166" y="1436" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">arrive on their own (see copilot-refresh.png).</text>
+</svg>

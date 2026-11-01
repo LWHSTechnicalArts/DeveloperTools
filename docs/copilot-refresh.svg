@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1472" viewBox="0 0 1100 1472"><defs><marker id="head-747474" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#747474"/></marker><marker id="head-ed225d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ed225d"/></marker><marker id="head-0b7ca9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7ca9"/></marker><marker id="head-7a5a3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a5a3a"/></marker></defs>
+<rect width="1100" height="1472" fill="#fbfbfb"/>
+<text xml:space="preserve" x="550.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#333333" text-anchor="middle" font-weight="bold">How Copilot gets the newest class instructions</text>
+<rect x="170" y="74" width="290" height="112" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="102" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Launch agent</text>
+<text xml:space="preserve" x="186" y="128" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Every 15 minutes (minutes 0, 15, 30, 45),</text>
+<text xml:space="preserve" x="186" y="148" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">set up by configure-copilot.sh. A time</text>
+<text xml:space="preserve" x="186" y="168" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">missed while asleep runs on wake.</text>
+<rect x="480" y="74" width="290" height="112" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="496" y="102" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Refresh Copilot button</text>
+<text xml:space="preserve" x="496" y="128" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Clicked in VS Code&#x27;s status bar, or run</text>
+<text xml:space="preserve" x="496" y="148" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">from the Command Palette: &quot;Refresh</text>
+<text xml:space="preserve" x="496" y="168" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Copilot: Update Class Instructions&quot;.</text>
+<polyline points="315.0,186 315.0,226" fill="none" stroke="#7a5a3a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#head-7a5a3a)"/>
+<polyline points="625.0,186 625.0,226" fill="none" stroke="#7a5a3a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#head-7a5a3a)"/>
+<rect x="170" y="226" width="600" height="92" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="254" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/refresh-copilot.sh</text>
+<text xml:space="preserve" x="186" y="280" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">git fetch -q origin downloads GitHub&#x27;s newest version</text>
+<text xml:space="preserve" x="186" y="300" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">without changing any files on this Mac.</text>
+<polyline points="470.0,318 470.0,358" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<polygon points="470.0,358 700.0,403 470.0,448 240.0,403" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="470.0" y="399" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Commits here that are</text>
+<text xml:space="preserve" x="470.0" y="417" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">not on GitHub yet?</text>
+<polyline points="700.0,403 820,403" fill="none" stroke="#ed225d" stroke-width="2" marker-end="url(#head-ed225d)"/>
+<text xml:space="preserve" x="715.0" y="395" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ed225d" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="820" y="367" width="240" height="112" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="836" y="395" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Skipped</text>
+<text xml:space="preserve" x="836" y="421" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">&quot;this copy has commits that are</text>
+<text xml:space="preserve" x="836" y="441" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">not on GitHub yet.&quot; Protects the</text>
+<text xml:space="preserve" x="836" y="461" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">teacher&#x27;s unpushed work.</text>
+<polyline points="470.0,448 470.0,488" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<polygon points="470.0,488 700.0,533 470.0,578 240.0,533" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="470.0" y="529" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">copilot/ already matches</text>
+<text xml:space="preserve" x="470.0" y="547" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">GitHub&#x27;s newest version?</text>
+<polyline points="700.0,533 820,533" fill="none" stroke="#7a5a3a" stroke-width="2" marker-end="url(#head-7a5a3a)"/>
+<text xml:space="preserve" x="715.0" y="525" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#7a5a3a" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="820" y="507" width="240" height="72" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="836" y="535" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Nothing to copy</text>
+<text xml:space="preserve" x="836" y="561" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">The folder is already current.</text>
+<polyline points="470.0,578 470.0,618" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<polygon points="470.0,618 720.0,663 470.0,708 220.0,663" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="470.0" y="659" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">copilot/ matches one of its last</text>
+<text xml:space="preserve" x="470.0" y="677" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">100 versions on GitHub?</text>
+<polyline points="720.0,663 820,663" fill="none" stroke="#ed225d" stroke-width="2" marker-end="url(#head-ed225d)"/>
+<text xml:space="preserve" x="735.0" y="655" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ed225d" text-anchor="start" font-weight="bold">No</text>
+<rect x="820" y="627" width="240" height="112" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="836" y="655" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Skipped</text>
+<text xml:space="preserve" x="836" y="681" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">&quot;the copilot folder has local</text>
+<text xml:space="preserve" x="836" y="701" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">changes.&quot; Protects edits made</text>
+<text xml:space="preserve" x="836" y="721" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">on this Mac.</text>
+<text xml:space="preserve" x="478.0" y="474" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">No</text>
+<text xml:space="preserve" x="478.0" y="604" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">No</text>
+<polyline points="470.0,708 470.0,748" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<text xml:space="preserve" x="478.0" y="734" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="170" y="748" width="600" height="92" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="776" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">Copy the newest copilot/ folder</text>
+<text xml:space="preserve" x="186" y="802" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">git checkout -q --no-overlay origin/main -- copilot</text>
+<text xml:space="preserve" x="186" y="822" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">also deletes worksheets that were removed on GitHub.</text>
+<polyline points="470.0,840 470.0,870" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="170" y="870" width="600" height="72" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="898" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">copilot/ on this Mac is current</text>
+<text xml:space="preserve" x="186" y="924" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">~/.copilot/copilot-instructions.md links to this copy.</text>
+<polyline points="1060,543.0 1080,543.0 1080,880 770,880" fill="none" stroke="#7a5a3a" stroke-width="2" marker-end="url(#head-7a5a3a)"/>
+<polyline points="470.0,942 470.0,982" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<polygon points="470.0,982 670.0,1024 470.0,1066 270.0,1024" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="470.0" y="1029" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Started by the button?</text>
+<polyline points="670.0,1024 820,1024" fill="none" stroke="#7a5a3a" stroke-width="2" marker-end="url(#head-7a5a3a)"/>
+<text xml:space="preserve" x="685.0" y="1016" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#7a5a3a" text-anchor="start" font-weight="bold">No</text>
+<rect x="820" y="968" width="240" height="112" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="836" y="996" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Launch agent ends</text>
+<text xml:space="preserve" x="836" y="1022" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Copilot keeps its old copy</text>
+<text xml:space="preserve" x="836" y="1042" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">until the next button click</text>
+<text xml:space="preserve" x="836" y="1062" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">or VS Code restart.</text>
+<polyline points="470.0,1066 470.0,1106" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<text xml:space="preserve" x="478.0" y="1092" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="170" y="1106" width="600" height="152" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="1134" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">vscode/refresh-copilot/extension.js</text>
+<text xml:space="preserve" x="186" y="1160" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">1. Run &quot;Restart Local Agent Host&quot;. Copilot&#x27;s chats run there,</text>
+<text xml:space="preserve" x="186" y="1180" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    and it keeps its old copy of the instructions even through</text>
+<text xml:space="preserve" x="186" y="1200" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    Reload Window.</text>
+<text xml:space="preserve" x="186" y="1220" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">2. Open a new chat (newChat, then open), as if the student</text>
+<text xml:space="preserve" x="186" y="1240" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    clicked + in the chat, so nobody keeps typing to the old copy.</text>
+<polyline points="770,1138 820,1138" fill="none" stroke="#ed225d" stroke-width="2" marker-end="url(#head-ed225d)"/>
+<text xml:space="preserve" x="782" y="1130" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ed225d" text-anchor="start" font-weight="bold">Fails</text>
+<rect x="820" y="1116" width="240" height="132" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="836" y="1144" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Tell the student</text>
+<text xml:space="preserve" x="836" y="1170" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">No restart: &quot;Quit VS Code</text>
+<text xml:space="preserve" x="836" y="1190" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">and open it again.&quot;</text>
+<text xml:space="preserve" x="836" y="1210" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">No new chat: &quot;Click + in</text>
+<text xml:space="preserve" x="836" y="1230" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">the chat.&quot;</text>
+<polyline points="470.0,1258 470.0,1298" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="170" y="1298" width="600" height="72" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="1326" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">A fresh chat with the current instructions</text>
+<text xml:space="preserve" x="186" y="1352" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Copilot&#x27;s replies follow the newest rules and footer.</text>
+<rect x="820" y="1290" width="240" height="152" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="836" y="1318" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">VS Code starts</text>
+<text xml:space="preserve" x="836" y="1344" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Each launch, the extension</text>
+<text xml:space="preserve" x="836" y="1364" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">opens a new chat (newChat,</text>
+<text xml:space="preserve" x="836" y="1384" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">then open). The chat open at</text>
+<text xml:space="preserve" x="836" y="1404" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">startup could lack the</text>
+<text xml:space="preserve" x="836" y="1424" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">instructions; a + chat has them.</text>
+<polyline points="820,1334 770,1334" fill="none" stroke="#7a5a3a" stroke-width="2" marker-end="url(#head-7a5a3a)"/>
+</svg>

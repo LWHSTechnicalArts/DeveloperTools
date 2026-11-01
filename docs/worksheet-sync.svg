@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1856" viewBox="0 0 1100 1856"><defs><marker id="head-747474" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#747474"/></marker><marker id="head-ed225d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ed225d"/></marker><marker id="head-0b7ca9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7ca9"/></marker><marker id="head-7a5a3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a5a3a"/></marker></defs>
+<rect width="1100" height="1856" fill="#fbfbfb"/>
+<text xml:space="preserve" x="550.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#333333" text-anchor="middle" font-weight="bold">How the worksheets stay in sync with Google Docs</text>
+<rect x="170" y="70" width="290" height="112" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="98" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Teacher edits a worksheet</text>
+<text xml:space="preserve" x="186" y="124" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Changes the words in its</text>
+<text xml:space="preserve" x="186" y="144" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Google Doc. Nothing else</text>
+<text xml:space="preserve" x="186" y="164" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">to do.</text>
+<rect x="480" y="70" width="290" height="112" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="496" y="98" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Teacher changes the list</text>
+<text xml:space="preserve" x="496" y="124" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Pastes a Doc&#x27;s share address into</text>
+<text xml:space="preserve" x="496" y="144" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">copilot/worksheets.txt, or deletes</text>
+<text xml:space="preserve" x="496" y="164" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">a line, then commits and pushes.</text>
+<polyline points="315.0,182 315.0,242" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<polyline points="625.0,182 625.0,242" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="470.0" y="216" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#747474" text-anchor="middle" font-weight="bold">The next run picks up either change.</text>
+<rect x="170" y="242" width="600" height="132" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="270" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">.github/workflows/update-worksheets.yml</text>
+<text xml:space="preserve" x="186" y="296" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">GitHub Actions starts it at minute 17 of every hour, or when</text>
+<text xml:space="preserve" x="186" y="316" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">someone clicks &quot;Run workflow&quot; on the Actions tab.</text>
+<text xml:space="preserve" x="186" y="336" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">It checks out the repository on a GitHub-hosted Mac (macos-latest),</text>
+<text xml:space="preserve" x="186" y="356" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">because the script uses macOS&#x27;s sed -i &#x27;&#x27;.</text>
+<polyline points="470.0,374 470.0,414" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="170" y="414" width="600" height="212" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="442" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/update-worksheets.sh</text>
+<text xml:space="preserve" x="186" y="468" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">1. Read each share address in copilot/worksheets.txt,</text>
+<text xml:space="preserve" x="186" y="488" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    skipping blank lines and lines that start with #.</text>
+<text xml:space="preserve" x="186" y="508" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">2. For each address, in list order:</text>
+<text xml:space="preserve" x="186" y="528" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    download docs.google.com/document/d/ID/export?format=md</text>
+<text xml:space="preserve" x="186" y="548" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    into a new scratch folder (mktemp -d) with curl;</text>
+<text xml:space="preserve" x="186" y="568" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    read the Doc&#x27;s title from the content-disposition header;</text>
+<text xml:space="preserve" x="186" y="588" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    name the file by its place and title, such as 02-functions.md;</text>
+<text xml:space="preserve" x="186" y="608" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    delete the embedded pictures with sed.</text>
+<polyline points="470.0,626 470.0,661" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<polygon points="470.0,661 660.0,706 470.0,751 280.0,706" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="470.0" y="711" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Every download worked?</text>
+<polyline points="660.0,706 830,706" fill="none" stroke="#ed225d" stroke-width="2" marker-end="url(#head-ed225d)"/>
+<text xml:space="preserve" x="675.0" y="698" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ed225d" text-anchor="start" font-weight="bold">No</text>
+<rect x="830" y="636" width="250" height="112" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="846" y="664" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Run fails</text>
+<text xml:space="preserve" x="846" y="690" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">set -e stops the script.</text>
+<text xml:space="preserve" x="846" y="710" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">The old worksheets stay,</text>
+<text xml:space="preserve" x="846" y="730" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">and GitHub marks the run failed.</text>
+<polyline points="470.0,751 470.0,801" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<text xml:space="preserve" x="478.0" y="781" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="170" y="801" width="600" height="212" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="829" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/update-worksheets.sh (continued)</text>
+<text xml:space="preserve" x="186" y="855" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">3. Replace copilot/worksheets/ with the scratch folder, which</text>
+<text xml:space="preserve" x="186" y="875" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    also drops worksheets that are no longer on the list.</text>
+<text xml:space="preserve" x="186" y="895" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">4. Rewrite copilot/worksheets.txt with each Doc&#x27;s title after</text>
+<text xml:space="preserve" x="186" y="915" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    its address. Comment lines stay as they were.</text>
+<text xml:space="preserve" x="186" y="935" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">5. Rewrite the numbered worksheet list in</text>
+<text xml:space="preserve" x="186" y="955" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    copilot/copilot-instructions.md, between the markers</text>
+<text xml:space="preserve" x="186" y="975" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    &lt;!-- worksheet list: ... --&gt; and &lt;!-- end of worksheet list --&gt;.</text>
+<text xml:space="preserve" x="186" y="995" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    If either marker is missing, print an error and exit 1.</text>
+<polyline points="470.0,1013 470.0,1048" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<polygon points="470.0,1048 660.0,1093 470.0,1138 280.0,1093" fill="#fbfbfb" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="470.0" y="1098" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">Anything new in copilot/?</text>
+<polyline points="660.0,1093 830,1093" fill="none" stroke="#7a5a3a" stroke-width="2" marker-end="url(#head-7a5a3a)"/>
+<text xml:space="preserve" x="675.0" y="1085" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#7a5a3a" text-anchor="start" font-weight="bold">No</text>
+<rect x="830" y="1057" width="250" height="72" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="846" y="1085" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Run ends</text>
+<text xml:space="preserve" x="846" y="1111" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Nothing to commit.</text>
+<polyline points="470.0,1138 470.0,1188" fill="none" stroke="#0b7ca9" stroke-width="2" marker-end="url(#head-0b7ca9)"/>
+<text xml:space="preserve" x="478.0" y="1168" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="170" y="1188" width="600" height="112" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="1216" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">Commit to GitHub&#x27;s main branch</text>
+<text xml:space="preserve" x="186" y="1242" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Commits copilot/ as github-actions[bot] with the message</text>
+<text xml:space="preserve" x="186" y="1262" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">&quot;updated worksheets from google docs&quot;, then pushes with the</text>
+<text xml:space="preserve" x="186" y="1282" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">run&#x27;s own token (permissions: contents: write).</text>
+<rect x="170" y="1340" width="290" height="92" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="1368" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Launch agent</text>
+<text xml:space="preserve" x="186" y="1394" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Every 15 minutes, set up</text>
+<text xml:space="preserve" x="186" y="1414" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">by configure-copilot.sh.</text>
+<rect x="480" y="1340" width="290" height="92" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="496" y="1368" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Refresh Copilot button</text>
+<text xml:space="preserve" x="496" y="1394" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">In VS Code&#x27;s status bar, for an</text>
+<text xml:space="preserve" x="496" y="1414" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">update right away.</text>
+<text xml:space="preserve" x="470.0" y="1326" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#747474" text-anchor="middle" font-weight="bold">On each student&#x27;s Mac</text>
+<polyline points="315.0,1432 315.0,1482" fill="none" stroke="#7a5a3a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#head-7a5a3a)"/>
+<polyline points="625.0,1432 625.0,1482" fill="none" stroke="#7a5a3a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#head-7a5a3a)"/>
+<rect x="170" y="1482" width="600" height="152" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="1510" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">scripts/refresh-copilot.sh</text>
+<text xml:space="preserve" x="186" y="1536" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">git fetch first. Skips if this copy has commits that are not on</text>
+<text xml:space="preserve" x="186" y="1556" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">GitHub, or if copilot/ matches none of its last 100 versions on</text>
+<text xml:space="preserve" x="186" y="1576" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">GitHub (a local edit). Otherwise: git checkout --no-overlay</text>
+<text xml:space="preserve" x="186" y="1596" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">origin/main -- copilot (copies only copilot/, deleting worksheets</text>
+<text xml:space="preserve" x="186" y="1616" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">removed upstream).</text>
+<polyline points="470.0,1634 470.0,1674" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="170" y="1674" width="600" height="152" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="186" y="1702" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Copilot reads the new instructions</text>
+<text xml:space="preserve" x="186" y="1728" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">~/.copilot/copilot-instructions.md links to the repository&#x27;s copy,</text>
+<text xml:space="preserve" x="186" y="1748" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">whose worksheet list links to each file in copilot/worksheets/.</text>
+<text xml:space="preserve" x="186" y="1768" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Copilot rereads it in a new chat: the button restarts the local</text>
+<text xml:space="preserve" x="186" y="1788" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">agent host and opens one, and each VS Code launch opens one.</text>
+<text xml:space="preserve" x="186" y="1808" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">See copilot-refresh.png.</text>
+</svg>

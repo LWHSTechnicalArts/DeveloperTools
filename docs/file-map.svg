@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1318" viewBox="0 0 1240 1318"><defs><marker id="head-747474" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#747474"/></marker><marker id="head-ed225d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ed225d"/></marker><marker id="head-0b7ca9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7ca9"/></marker><marker id="head-7a5a3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a5a3a"/></marker></defs>
+<rect width="1240" height="1318" fill="#fbfbfb"/>
+<text xml:space="preserve" x="620.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#333333" text-anchor="middle" font-weight="bold">Where each repository file lives on a student&#x27;s Mac</text>
+<text xml:space="preserve" x="30" y="98" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#747474" text-anchor="start" font-weight="bold">In ~/DeveloperTools</text>
+<text xml:space="preserve" x="530" y="98" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#747474" text-anchor="start" font-weight="bold">How it gets there</text>
+<text xml:space="preserve" x="810" y="98" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#747474" text-anchor="start" font-weight="bold">Live location</text>
+<rect x="30" y="116" width="400" height="44" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="144" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">zsh/.zshrc</text>
+<rect x="810" y="116" width="400" height="44" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="144" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/.zshrc</text>
+<polyline points="430,138 810,138" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="126" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">Symlink, configure.sh</text>
+<rect x="30" y="178" width="400" height="44" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="206" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">zsh/p5js-editor-light.p10k.zsh</text>
+<rect x="810" y="178" width="400" height="44" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="206" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/.p10k.zsh</text>
+<polyline points="430,200 810,200" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="188" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">Symlink, configure.sh</text>
+<rect x="30" y="240" width="400" height="112" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="268" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">vscode/settings.json</text>
+<text xml:space="preserve" x="46" y="294" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Also limits chat to the Copilot harness, starts</text>
+<text xml:space="preserve" x="46" y="314" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">each chat with manual approvals (no Autopilot</text>
+<text xml:space="preserve" x="46" y="334" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">or Bypass Approvals), and turns on agent debug logs.</text>
+<rect x="810" y="240" width="400" height="72" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="268" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/Library/Application Support/</text>
+<text xml:space="preserve" x="826" y="294" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Code/User/settings.json</text>
+<polyline points="430,262 810,262" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="250" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">Symlink, configure.sh</text>
+<rect x="30" y="370" width="400" height="44" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="398" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">copilot/copilot-instructions.md</text>
+<rect x="810" y="370" width="400" height="44" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="398" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/.copilot/copilot-instructions.md</text>
+<polyline points="430,392 810,392" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="380" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">Symlink, configure-copilot.sh</text>
+<text xml:space="preserve" x="620.0" y="434" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0b7ca9" text-anchor="middle" font-weight="bold">Symlinks are live: edits in the repository take effect at once.</text>
+<rect x="30" y="462" width="400" height="112" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="490" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">vscode/extensions.txt</text>
+<text xml:space="preserve" x="46" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">samplavigne.p5-vscode</text>
+<text xml:space="preserve" x="46" y="536" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">ritwickdey.LiveServer</text>
+<text xml:space="preserve" x="46" y="556" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">usernamehw.errorlens</text>
+<rect x="810" y="462" width="400" height="92" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="490" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/.vscode/extensions/</text>
+<text xml:space="preserve" x="826" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Downloaded from the Visual Studio</text>
+<text xml:space="preserve" x="826" y="536" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Marketplace.</text>
+<polyline points="430,484 810,484" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="472" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">code --install-extension ID</text>
+<rect x="30" y="592" width="400" height="132" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="620" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">Three local extensions</text>
+<text xml:space="preserve" x="46" y="646" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">vscode/p5js-editor-light/  (the color theme)</text>
+<text xml:space="preserve" x="46" y="666" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">vscode/p5-live-sketch/  (the sketch beside its code)</text>
+<text xml:space="preserve" x="46" y="686" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">vscode/refresh-copilot/  (status bar button, and a</text>
+<text xml:space="preserve" x="46" y="706" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">    new chat each time VS Code starts)</text>
+<rect x="810" y="592" width="400" height="92" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="620" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/.vscode/extensions/local.*</text>
+<text xml:space="preserve" x="826" y="646" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Installed copies, not live:</text>
+<text xml:space="preserve" x="826" y="666" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">rerun configure.sh after an edit.</text>
+<polyline points="430,614 810,614" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="602" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">zip into .vsix, then</text>
+<text xml:space="preserve" x="620.0" y="634" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">code --install-extension --force</text>
+<rect x="30" y="742" width="400" height="92" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="46" y="770" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">Launch agent settings</text>
+<text xml:space="preserve" x="46" y="796" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Written by configure-copilot.sh, with</text>
+<text xml:space="preserve" x="46" y="816" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">this repository&#x27;s path filled in.</text>
+<rect x="810" y="742" width="400" height="132" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="770" font-family="Menlo, monospace" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">~/Library/LaunchAgents/</text>
+<text xml:space="preserve" x="826" y="796" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">org.lwhs.developertools.refresh-copilot.plist</text>
+<text xml:space="preserve" x="826" y="816" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Runs scripts/refresh-copilot.sh every 15 minutes;</text>
+<text xml:space="preserve" x="826" y="836" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">logs to ~/Library/Logs/DeveloperTools-</text>
+<text xml:space="preserve" x="826" y="856" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">refresh-copilot.log.</text>
+<polyline points="430,764 810,764" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="620.0" y="752" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">here document, then</text>
+<text xml:space="preserve" x="620.0" y="784" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="normal">launchctl bootstrap</text>
+<line x1="30" y1="898" x2="1210" y2="898" stroke="#a6a6a6" stroke-width="1"/>
+<text xml:space="preserve" x="30" y="932" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#333333" text-anchor="start" font-weight="bold">How worksheet and instruction changes reach students</text>
+<rect x="30.0" y="964" width="265" height="92" rx="8" fill="#f0f0f0" stroke="#ed225d" stroke-width="2"/>
+<text xml:space="preserve" x="46.0" y="992" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#ed225d" text-anchor="start" font-weight="bold">Teacher edits</text>
+<text xml:space="preserve" x="46.0" y="1018" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">a worksheet&#x27;s Google Doc.</text>
+<text xml:space="preserve" x="46.0" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Nothing else to do.</text>
+<rect x="335.0" y="964" width="265" height="132" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="351.0" y="992" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">GitHub Actions</text>
+<text xml:space="preserve" x="351.0" y="1018" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Every hour, runs</text>
+<text xml:space="preserve" x="351.0" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">update-worksheets.sh and</text>
+<text xml:space="preserve" x="351.0" y="1058" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">commits any changed copilot/</text>
+<text xml:space="preserve" x="351.0" y="1078" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">files as github-actions[bot].</text>
+<polyline points="295.0,986 335.0,986" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="640.0" y="964" width="265" height="112" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="656.0" y="992" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">GitHub, main branch</text>
+<text xml:space="preserve" x="656.0" y="1018" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Holds the newest copilot/</text>
+<text xml:space="preserve" x="656.0" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">folder: instructions, list</text>
+<text xml:space="preserve" x="656.0" y="1058" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">and worksheets.</text>
+<polyline points="600.0,986 640.0,986" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<rect x="945.0" y="964" width="265" height="112" rx="8" fill="#f0f0f0" stroke="#0b7ca9" stroke-width="2"/>
+<text xml:space="preserve" x="961.0" y="992" font-family="Menlo, monospace" font-size="17" fill="#0b7ca9" text-anchor="start" font-weight="bold">refresh-copilot.sh</text>
+<text xml:space="preserve" x="961.0" y="1018" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">git fetch, then check out only</text>
+<text xml:space="preserve" x="961.0" y="1038" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">copilot/ from origin/main.</text>
+<text xml:space="preserve" x="961.0" y="1058" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Skips a copy with local work.</text>
+<polyline points="905.0,986 945.0,986" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#head-747474)"/>
+<text xml:space="preserve" x="640.0" y="1094" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#747474" text-anchor="start" font-weight="bold">The teacher&#x27;s own edits to</text>
+<text xml:space="preserve" x="640.0" y="1112" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#747474" text-anchor="start" font-weight="bold">copilot-instructions.md are pushed here.</text>
+<rect x="435" y="1196" width="290" height="92" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="451" y="1224" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Launch agent</text>
+<text xml:space="preserve" x="451" y="1250" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Runs the script every 15 minutes</text>
+<text xml:space="preserve" x="451" y="1270" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">(set up by configure-copilot.sh).</text>
+<rect x="810" y="1196" width="330" height="92" rx="8" fill="#f0f0f0" stroke="#7a5a3a" stroke-width="2"/>
+<text xml:space="preserve" x="826" y="1224" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#7a5a3a" text-anchor="start" font-weight="bold">Refresh Copilot button</text>
+<text xml:space="preserve" x="826" y="1250" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">Runs the script now, restarts the</text>
+<text xml:space="preserve" x="826" y="1270" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="start" font-weight="normal">local agent host, and opens a new chat.</text>
+<polyline points="580,1196 580,1156 1035.0,1156 1035.0,1076" fill="none" stroke="#7a5a3a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#head-7a5a3a)"/>
+<polyline points="1095.0,1196 1095.0,1076" fill="none" stroke="#7a5a3a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#head-7a5a3a)"/>
+</svg>
