@@ -115,7 +115,7 @@ This short tour checks that each part of the setup works and shows you the featu
 
 ### Learn Version Control in Visual Studio Code
 
-The setup also prepares your Mac for version control with git. To learn it without typing in the terminal, follow the tutorial [Understanding Version Control in VS Code](https://docs.google.com/document/d/1-ay9cXvhSH7K0Cr4LW_e2bnJYPkNPfg9VUmg3m8pufM/edit?usp=sharing). It uses Visual Studio Code's Source Control view to create a repository on GitHub, clone it, make commits, work with others, merge a branch, and undo a commit.
+The setup also prepares your Mac for version control with git. To learn it without typing in the terminal, follow the tutorial [Understanding Version Control in VS Code](https://docs.google.com/document/d/1-ay9cXvhSH7K0Cr4LW_e2bnJYPkNPfg9VUmg3m8pufM/edit?usp=sharing). It uses Visual Studio Code's Source Control view to create a repository on GitHub, clone it, make commits, work with others, merge a branch, and undo a commit. Need a quick refresher after following it? Refresh your git concepts in four minutes [here](https://www.youtube.com/watch?v=e9lnsKot_SQ).
 
 ### Make a p5.js Sketch with Copilot
 
